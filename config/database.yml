@@ -82,4 +82,4 @@ production:
   <<: *default
   database: pair_programming_production
   username: pair_programming
-  password: <%= ENV['BACKREACT_DATABASE_PASSWORD'] %>
+  password: <%= ENV['PAIR_PROGRAMMING_DATABASE_PASSWORD'] %>
