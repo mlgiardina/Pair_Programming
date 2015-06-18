@@ -1,6 +1,6 @@
 var UserModel = Backbone.Model.extend({
 	defaults: {
-		_id:
+		id:
 		username:
 		password:
 		picture:
@@ -8,5 +8,5 @@ var UserModel = Backbone.Model.extend({
 		bio:
 	},
 	urlRoot:
-	idAttribute: "_id"
+	idAttribute: "id"
 });
