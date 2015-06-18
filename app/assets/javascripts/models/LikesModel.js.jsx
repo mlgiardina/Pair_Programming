@@ -1,9 +1,9 @@
-var LikesModels = Backbone.Model.extend({
-	defaults: {
-		id:
-		liked_id:
-		liker_id:
-	},
-	urlRoot:
-	idAttribute: "id"
-});
+// var LikesModel = Backbone.Model.extend({
+// 	defaults: {
+// 		id: 1
+// 		// liked_id:
+// 		// liker_id:
+// 	},
+// 	urlRoot:
+// 	idAttribute: "id"
+// });
