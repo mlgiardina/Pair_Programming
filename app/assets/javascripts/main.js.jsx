@@ -1,17 +1,16 @@
-/* global Backbone React */
 var App = Backbone.Router.extend({
     routes: {
         '': 'profile',
         'edit': 'edit'
     },
     profile: function() {
-      React.render(<Profile/>, document.querySelector('#container'));
+      React.render(<Profile/>, document.getElementById('container'));
     },
     edit: function() {
-      React.render(<Edit/>, document.querySelector('#container'));
+      React.render(<Edit/>, document.getElementById('container'));
     }
 });
 
 var app = new App();
-Backbone.history.start();
+Backbone.history.start();   
 app.navigate('edit');
