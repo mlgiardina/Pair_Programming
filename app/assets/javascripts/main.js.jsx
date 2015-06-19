@@ -5,14 +5,15 @@ var App = Backbone.Router.extend({
 
 	},
 	login: function() {
-	 var user = new UserModel({
-		username: "thisGuy",
-		password_digest: "secretPassword", 
-		picture: null, 
-		email: null, 
-		bio: null
-	 });
-	 user.save();
+		React.render(<Login />, document.getElementById("container"));
+	 // var user = new UserModel({
+		// username: "thisGuy",
+		// password_digest: "secretPassword", 
+		// picture: null, 
+		// email: null, 
+		// bio: null
+	 // });
+	 // user.save();
 	}
 });
 
