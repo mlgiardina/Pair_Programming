@@ -5,7 +5,12 @@ class MessagesController < ApplicationController
   end
 
   def create
-    message = Message.create(message_params)
+    authenticate_user!
+    message = Message.new(message_params)
+    if message.save
+      render json: { "Message sent!" }
+    else
+      render json: { "Error" }
   end
 
   def show
