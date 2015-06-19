@@ -89,7 +89,7 @@ var Login = React.createClass({
 		//console.log(user);
 		if(currentUser.isValid()){
 			console.log("user id:", currentUser.get("username"), "user password:", currentUser.get("password"));
-			$.post("http://localhost:3000/login/",{username: currentUser.get("username"), password: currentUser.password},function(data){
+			$.post("http://localhost:3000/login/",{username: currentUser.get("username"), password: currentUser.get("password")},function(data){
 				console.log("Im logging and am getting back", data);
 			},"json");
 			this.props.routing.navigate("profile/"+currentUser.get("username"),{trigger: true});
