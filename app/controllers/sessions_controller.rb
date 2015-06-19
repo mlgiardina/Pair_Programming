@@ -3,20 +3,18 @@ class SessionsController < ApplicationController
   end
 
   def create
-    user = User.find_by_name(params[:name])
+    user = User.find_by_username(params[:username])
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = "Successfully logged in!"
-      redirect_to root_url
+      render json: { message: "logged in!" }
     else
-      flash[:danger] = "Username or Password did not match."
-      render :new
+      render json: { message: "user does not exist" }, status: 404
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: "Successfully logged out. Goodbye!"
+    render json: { message: "logged out!" }
   end
 end
