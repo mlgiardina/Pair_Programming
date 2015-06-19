@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'messages/:username', to: 'messages#index'
+
   resources :users
   resources :answers
   resources :likes

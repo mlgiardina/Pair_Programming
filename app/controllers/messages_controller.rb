@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
   def index
-    render json: Message.all
+    render json: Message.where(receiver_name: params[:username])
   end
 
   def create
