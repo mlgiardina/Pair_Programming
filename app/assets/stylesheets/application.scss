@@ -17,8 +17,6 @@
 
 @import "reset";
 
-
-
 @mixin grid ($col-num){
   width: ($col * $col-num)+($gut * (($col-num)-1));
   margin-right: $gut;
@@ -72,85 +70,117 @@ $gut:2%;
   margin-right: 0;
   }
 
-.red{
- background-color:rgba(255,0,0,0.6);
- height:110px;
-  }
-
-
-.blue{
-  background-color:rgba(255,0,0,0.3);
-  height:500px;
-  }
-
-.thirds{
-   background-color:rgb(249,245,221);
-   height:300px;
-   width:100%;
+h1{
+  font-size:2.6em;
+  font-family:arial;
+  text-align:center;
 }
 
-.add{
-  display:none;
+
+  // header login starts here-----------------------------------
+
+.header-color{
+     background:red;
+     }
+
+
+.form-login {
+  float:right;
+  padding-bottom:25px;
+  margin-left:4%;
+
+    label{
+       
+
+     input{
+       width:20%;
+       margin-top:20px;
+       margin-right:3%;
+      }
+     }
+    } 
+
+
+// body color---------------------------------------------------
+.body-color{
+ background-color:pink;
+ height:510px;
   }
 
 
-*,
-*:before,
-*:after {
-   box-sizing: border-box;
-}
-.form1 {
+
+// main sign up form starts here--------------------------------
+.form-signup {
   margin:35px auto;
   border: 1px solid #c6c7cc;
   border-radius: 5px;
   font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
-  background-color:rgba(255,0,0,0.5);
+  background-color:green;
   overflow: hidden; 
   width: 100%;
-}
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-input {
-  border-radius: 5px;
-  font: 14px/1.4 "Helvetica Neue", Helvetica,
-    Arial, sans-serif;
-  min-width:100%;
-  margin: 0;
-}
+
 .sign-up-info {
   padding: 20px 20px 0 20px;
-}
-.sign-up-info label {
-  color: #395870;
-  display: block;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-.sign-up-info input {
-   background: #fff; 
-   border: 1px solid #c6c7cc; 
-   /* box-shadow: inset 0 1px 1px rgba(0, 0, 0,.1); */ 
-   color: #636466; 
-   padding: 6px; 
-   margin-top: 6px; 
-   min-width: 100%; 
-}
-.account-action {
+
+    label {
+     color: #395870;
+     display: block;
+     font-weight: bold;
+     margin-bottom: 20px;
+     }
+
+    input {
+     border-radius: 5px;
+     font: 14px/1.4 "Helvetica Neue", Helvetica,
+     Arial, sans-serif;
+     min-width:100%;
+     color: #636466; 
+     padding: 6px; 
+     margin-top: 6px; 
+     }
+    }
+
+.signup-bottom {
   background: #f0f0f2;
   border-top: 1px solid #c6c7cc;
   padding: 20px;
+
+    .btn {
+     background: linear-gradient(#49708f, #293f50);  
+     border: 0;
+     color: #fff;
+     cursor: pointer;
+     font-weight: bold;
+     padding: 8px 16px;
+     width:90%;
+     display:block;
+     margin:0 auto;
+    }
+  }
 }
-.account-action .btn {
-  background: linear-gradient(#49708f, #293f50);  
-  border: 0;
-  color: #fff;
-  cursor: pointer;
-  font-weight: bold;
-  float: left;
-  padding: 8px 16px;
+
+// bottom section of thirds-------------------------------
+
+.thirds{
+   background-color:rgb(249,245,221);
+   
+   width:100%;
 }
+
+img{
+  border-radius:100px;
+  display:block;
+  margin:30px auto;
+  }
+
+
+.delete{
+  display:none;
+  }
+
+
+@import "mediaqueries";
+
+
 
 
