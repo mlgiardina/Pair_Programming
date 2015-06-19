@@ -11,6 +11,7 @@ class MessagesController < ApplicationController
       render json: { "Message sent!" }
     else
       render json: { "Error" }
+    end
   end
 
   def show
