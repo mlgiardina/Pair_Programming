@@ -25,6 +25,6 @@ var ProfilePage = React.createClass({
 		this.props.routing.navigate("login", {trigger: true});
 	}, 
 	showMessageComponent: function(){
-		React.render(<SendMessage user={this.props.user} />, document.getElementById("send-message"));
+		React.render(<SendMessage routing={this.props.routing} user={this.props.user} />, document.getElementById("send-message"));
 	}
 });

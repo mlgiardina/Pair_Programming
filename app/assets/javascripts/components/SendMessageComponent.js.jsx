@@ -2,16 +2,22 @@ var SendMessage = React.createClass({
 	render: function(){
 		return (
 			<div>
-				<form onSubmi={this.sendMessage}>
+				<form onSubmit={this.sendMessage}>
 					<input ref="messageBody" type="text"/>
-					<button>Send Message</button>
+					<button type="submit">Send Message</button>
 				</form>
 			</div>
 		);
 	},
-	sendMessage: function(){
+	sendMessage: function(event){
+		event.preventDefault();
+		var goTo = this.props.routing;
 		console.log("im showing a message");
-		$.post("http://localhost:3000",{receiver_name: 1, sender_name:this.props.user, 
-										body: this.refs.messageBody.getDOMNode().value}, "json");
+		$.post("http://localhost:3000/messages/",{message: {receiver_name: "allen", sender_name:this.props.user, 
+										body: this.refs.messageBody.getDOMNode().value}}, function(data){
+											console.log("did i work?")
+											console.log(data);
+											goTo.navigate("profile/"+this.props.user, {trigger: true});
+										}, "json");
 	}
 });
