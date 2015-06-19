@@ -1,21 +1,19 @@
+
+var containerEl = document.getElementById("container");
 var App = Backbone.Router.extend({
 	routes: {
 		"":"login",
-		"login":"login"
+		"login":"login",
+		"profile/:user":"profile"
 
 	},
 	login: function() {
-		React.render(<Login />, document.getElementById("container"));
-	 // var user = new UserModel({
-		// username: "thisGuy",
-		// password_digest: "secretPassword", 
-		// picture: null, 
-		// email: null, 
-		// bio: null
-	 // });
-	 // user.save();
+		React.render(<Login routing={myRouter}/>, containerEl);
+	}, 
+	profile: function(user){
+		React.render(<ProfilePage user={user} />, containerEl);
 	}
 });
 
-var app = new App();
+var myRouter = new App();
 Backbone.history.start();   
