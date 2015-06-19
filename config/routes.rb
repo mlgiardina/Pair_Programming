@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'messages/:username', to: 'messages#index'
+  get 'messages/inbox', to: 'messages#index'
 
   resources :users
   resources :answers
