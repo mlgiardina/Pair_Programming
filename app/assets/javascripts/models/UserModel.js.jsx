@@ -1,5 +1,6 @@
 var UserModel = Backbone.Model.extend({
 	defaults: {
+		id: null,
 		username: null, 
 		password_confirmation: null, 
 		password: null,
@@ -15,5 +16,5 @@ var UserModel = Backbone.Model.extend({
 		} 
 	},
 	urlRoot: "http://localhost:3000/users/",
-	idAttribute: "_id"
+	idAttribute: "id"
 });

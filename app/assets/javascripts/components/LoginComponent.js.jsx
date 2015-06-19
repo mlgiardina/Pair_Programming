@@ -1,3 +1,4 @@
+var userCollection = new UserCollection();
 var Login = React.createClass({
 	render: function () {
 		return (
@@ -54,7 +55,7 @@ var Login = React.createClass({
 			email: this.refs.newUserEmail.getDOMNode().value, 
 			bio: null
 		 });
-		 console.log(user);
+
 		 var newPasword = this.refs.newUserPassword.getDOMNode().value;
 		 var confirmPass = this.refs.newUserConfirmPassword.getDOMNode().value;
 
@@ -65,7 +66,7 @@ var Login = React.createClass({
 			 	console.log("I work");
 			 	this.props.routing.navigate("profile/"+user.get("username"),{trigger: true});
 			 	$.post("http://localhost:3000/users/",{user: user.attributes}, function(data){
-			 		console.log(data);
+			 		userCollection.add(user);
 			 	}, "json");
 		 	}
 		 } else {
@@ -83,10 +84,14 @@ var Login = React.createClass({
 			email: "null", 
 			bio: null
 		 });
+		
+		var user = userCollection.findWhere({username: currentUser.get("username")});
+		console.log(user);
 		if(currentUser.isValid()){
-			$.post("http://localhost:3000/login/",{username: currentUser.get("username")},function(data){
-				console.log("Im logging and am getting back", data);
-			},"json");
+			console.log("user id:", currentUser.get("id"), "user password:", currentUser.get("password"));
+			// $.post("http://localhost:3000/login/",{id: currentUser.id, password: currentUser.password},function(data){
+			// 	console.log("Im logging and am getting back", data);
+			// },"json");
 			this.props.routing.navigate("profile/"+currentUser.get("username"),{trigger: true});
 		} else {
 			console.log(currentUser.validationError);
