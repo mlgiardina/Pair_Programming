@@ -1,10 +1,7 @@
 class UsersController < ApplicationController
+
   def index
     render json: User.all
-  end
-
-  def new
-    User.new
   end
 
   def show
@@ -12,8 +9,12 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.create(user_params)
-    render json: user
+    if User.exists?(username: params[:username])
+      render json: { message: "That username already exists. Please pick another one." }
+    else
+      user = User.create(user_params)
+      render json: user
+    end
   end
 
   def destroy
