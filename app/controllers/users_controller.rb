@@ -3,6 +3,10 @@ class UsersController < ApplicationController
     render json: User.all
   end
 
+  def new
+    User.new
+  end
+
   def show
     render json: User.find(params[:id])
   end
@@ -14,6 +18,7 @@ class UsersController < ApplicationController
 
   def destroy
     User.destroy(params[:id])
+  end
 
   private
 
