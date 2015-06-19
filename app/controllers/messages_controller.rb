@@ -1,7 +1,12 @@
 class MessagesController < ApplicationController
 
   def index
-    render json: Message.where(receiver_name: params[:username])
+    authenticate_user!
+    if session[:user_id] == User.where(username: params[:username]).first.id
+      render json: Message.where(receiver_name: params[:username])
+    else
+      render json: { message: "wrong user!" }
+    end
   end
 
   def create
