@@ -63,6 +63,7 @@ var Login = React.createClass({
 			 } else {
 			 	console.log("I work");
 			 	this.props.routing.navigate("profile/"+user.get("username"),{trigger: true});
+			 	console.log("im sending this: ",{user: user.attributes});
 			 	//user.save();
 		 	}
 		 } else {
@@ -79,6 +80,7 @@ var Login = React.createClass({
 			email: "null", 
 			bio: null
 		 });
+		console.log("im sending this: ",{user: currentUser});
 		if(currentUser.isValid()){
 			this.props.routing.navigate("profile/"+currentUser.get("username"),{trigger: true});
 		} else {
