@@ -1,0 +1,41 @@
+// Place all the styles related to the Answers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+
+@media screen and (min-width: 800px) {
+  .add{
+  display:inline-block;
+}
+  
+  .off{
+  display:none;
+  }
+  
+.thirds{
+ width:49%;
+ }
+  
+  .form-signup{
+    max-width:50%;
+  }
+}/*end of 600 querie  */
+
+
+@media screen and (min-width: 1050px) {
+  .add{
+    display:inline-block
+    }
+  
+  .thirds{
+    width:32%;
+    }
+  
+   .form-signup{
+    max-width:30%;
+  }
+  } /* end of 750 querie */
+
+
