@@ -1,7 +1,6 @@
 var ProfilePage = React.createClass({
 	render: function(){
 		var questionare = this.props.questions.map(function(question){
-			console.log(question);
 			return (<div key={question}>{question}</div>);
 		});
 		return (

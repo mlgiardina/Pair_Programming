@@ -48,7 +48,8 @@ var Login = React.createClass({
 		event.preventDefault();
 		 var user = new UserModel({
 			username: this.refs.newUser.getDOMNode().value,
-			password_digest: this.refs.newUserPassword.getDOMNode().value, 
+			password_confirmation: this.refs.newUserPassword.getDOMNode().value,
+			password: this.refs.newUserPassword.getDOMNode().value,
 			picture: null, 
 			email: this.refs.newUserEmail.getDOMNode().value, 
 			bio: null
@@ -63,8 +64,9 @@ var Login = React.createClass({
 			 } else {
 			 	console.log("I work");
 			 	this.props.routing.navigate("profile/"+user.get("username"),{trigger: true});
-			 	console.log("im sending this: ",{user: user.attributes});
-			 	//user.save();
+			 	$.post("http://localhost:3000/users/",{user: user.attributes}, function(data){
+			 		console.log(data);
+			 	}, "json");
 		 	}
 		 } else {
 		 	console.log(user.validationError);
@@ -75,13 +77,16 @@ var Login = React.createClass({
 		event.preventDefault();
 		var currentUser = new UserModel({
 			username: this.refs.username.getDOMNode().value,
-			password_digest: this.refs.password.getDOMNode().value, 
+			password_confirmation: this.refs.password.getDOMNode().value, 
+			password: this.refs.password.getDOMNode().value, 
 			picture: null, 
 			email: "null", 
 			bio: null
 		 });
-		console.log("im sending this: ",{user: currentUser});
 		if(currentUser.isValid()){
+			$.post("http://localhost:3000/login/",{username: currentUser.get("username")},function(data){
+				console.log("Im logging and am getting back", data);
+			},"json");
 			this.props.routing.navigate("profile/"+currentUser.get("username"),{trigger: true});
 		} else {
 			console.log(currentUser.validationError);
