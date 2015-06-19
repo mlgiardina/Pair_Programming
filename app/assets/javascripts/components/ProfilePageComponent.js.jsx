@@ -8,9 +8,11 @@ var ProfilePage = React.createClass({
 				<button onClick={this.logOut}>Logout</button>
 				<button onClick={this.showMessageComponent}>Send Message</button>
 				hi {this.props.user}!
+				<a onClick={this.displayMessageBox} href="#">Message</a>
 				<div id="send-message">
 				</div>
 				<div>
+					<div id="target-messagebox">
 					<h1>Questionare</h1>
 					{questionare}
 				</div>
@@ -26,5 +28,12 @@ var ProfilePage = React.createClass({
 	}, 
 	showMessageComponent: function(){
 		React.render(<SendMessage routing={this.props.routing} user={this.props.user} />, document.getElementById("send-message"));
+	},
+	displayMessageBox: function(){
+		var messages;
+		$.get("http://localhost:3000/messages/username",{username: this.props.user},function(data){
+			messages = data;
+		},"json");
+		React.render(<MessageBox user={this.props.user} receivedMessages={messages} />, document.getElementById("target-messagebox"));
 	}
 });
