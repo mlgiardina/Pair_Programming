@@ -1,3 +1,4 @@
+var userCollection = new UserCollection();
 var Login = React.createClass({
 	render: function () {
 		return (
@@ -48,12 +49,13 @@ var Login = React.createClass({
 		event.preventDefault();
 		 var user = new UserModel({
 			username: this.refs.newUser.getDOMNode().value,
-			password_digest: this.refs.newUserPassword.getDOMNode().value, 
+			password_confirmation: this.refs.newUserPassword.getDOMNode().value,
+			password: this.refs.newUserPassword.getDOMNode().value,
 			picture: null, 
 			email: this.refs.newUserEmail.getDOMNode().value, 
 			bio: null
 		 });
-		 console.log(user);
+
 		 var newPasword = this.refs.newUserPassword.getDOMNode().value;
 		 var confirmPass = this.refs.newUserConfirmPassword.getDOMNode().value;
 
@@ -63,7 +65,9 @@ var Login = React.createClass({
 			 } else {
 			 	console.log("I work");
 			 	this.props.routing.navigate("profile/"+user.get("username"),{trigger: true});
-			 	//user.save();
+			 	$.post("http://localhost:3000/users/",{user: user.attributes}, function(data){
+			 		userCollection.add(user);
+			 	}, "json");
 		 	}
 		 } else {
 		 	console.log(user.validationError);
@@ -74,13 +78,21 @@ var Login = React.createClass({
 		event.preventDefault();
 		var currentUser = new UserModel({
 			username: this.refs.username.getDOMNode().value,
-			password_digest: this.refs.password.getDOMNode().value, 
+			password_confirmation: this.refs.password.getDOMNode().value, 
+			password: this.refs.password.getDOMNode().value, 
 			picture: null, 
 			email: "null", 
 			bio: null
 		 });
+		
+		//var user = userCollection.findWhere({username: currentUser.get("username")});
+		//console.log(user);
 		if(currentUser.isValid()){
-			this.props.routing.navigate("profile/"+currentUser.get("username"),{trigger: true});
+			console.log("user id:", currentUser.get("username"), "user password:", currentUser.get("password"));
+			$.post("http://localhost:3000/login/",{username: currentUser.get("username"), password: currentUser.get("password")},function(data){
+				console.log("Im logging and am getting back", data);
+				this.props.routing.navigate("profile/"+currentUser.get("username"),{trigger: true});
+			},"json");
 		} else {
 			console.log(currentUser.validationError);
 		}

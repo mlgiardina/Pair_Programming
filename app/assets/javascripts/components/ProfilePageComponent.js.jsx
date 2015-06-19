@@ -1,11 +1,11 @@
 var ProfilePage = React.createClass({
 	render: function(){
 		var questionare = this.props.questions.map(function(question){
-			console.log(question);
 			return (<div key={question}>{question}</div>);
 		});
 		return (
 			<div>
+				<button onClick={this.logOut}>Logout</button>
 				hi {this.props.user}!
 
 				<div>
@@ -15,5 +15,11 @@ var ProfilePage = React.createClass({
 			</div>
 			//TODO build out nice look profile page
 		);
+	}, 
+	logOut: function(){
+		$.get("http://localhost:3000/logout/",function(data){
+			console.log(data);
+		});
+		this.props.routing.navigate("login", {trigger: true});
 	}
 });
