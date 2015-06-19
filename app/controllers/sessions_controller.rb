@@ -7,11 +7,9 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:success] = "Successfully logged in!"
-      redirect_to root_url
+      render json: (message: "logged in!")
     else
-      flash[:danger] = "Username or Password did not match."
-      render :new
+      render json: (message: "user does not exist"), status: 404
     end
   end
 
