@@ -17,7 +17,9 @@ var ProfilePage = React.createClass({
 		);
 	}, 
 	logOut: function(){
-		$.get("http://localhost:3000/logout");
+		$.get("http://localhost:3000/logout/",function(data){
+			console.log(data);
+		});
 		this.props.routing.navigate("login", {trigger: true});
 	}
 });
