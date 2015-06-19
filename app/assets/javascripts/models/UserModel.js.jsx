@@ -12,7 +12,7 @@ var UserModel = Backbone.Model.extend({
 			return "*Must not leave fields blank!";
 		} else {
 			return false;
-		}
+		} //TODO get validator.js ASK Aaron
 	},
 	urlRoot: "http://pair-programming-1.herokuapp.com/users",
 	idAttribute: "id"
