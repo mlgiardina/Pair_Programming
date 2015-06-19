@@ -7,9 +7,9 @@ class SessionsController < ApplicationController
 
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      render json: (message: "logged in!")
+      render json: { message: "logged in!" }
     else
-      render json: (message: "user does not exist"), status: 404
+      render json: { message: "user does not exist" }, status: 404
     end
   end
 
