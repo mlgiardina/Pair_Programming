@@ -12,12 +12,13 @@ var SendMessage = React.createClass({
 	sendMessage: function(event){
 		event.preventDefault();
 		var goTo = this.props.routing;
+		var user = this.props.user;
 		console.log("im showing a message");
 		$.post("http://localhost:3000/messages/",{message: {receiver_name: "allen", sender_name:this.props.user, 
 										body: this.refs.messageBody.getDOMNode().value}}, function(data){
 											console.log("did i work?")
 											console.log(data);
-											goTo.navigate("profile/"+this.props.user, {trigger: true});
+											goTo.navigate("profile/"+user, {trigger: true});
 										}, "json");
 	}
 });
