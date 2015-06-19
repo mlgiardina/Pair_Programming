@@ -1,4 +1,4 @@
-var MessageCollection = Backbone.Collection.extend({
-	model: MessageModel,
-	url:
-});
+// var MessageCollection = Backbone.Collection.extend({
+// 	model: MessageModel,
+// 	url:
+// });

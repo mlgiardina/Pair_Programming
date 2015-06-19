@@ -1,4 +1,4 @@
-var LikesCollection = Backbone.Collection.extend({
-	model: LikesModel,
-	url:
-});
+// var LikesCollection = Backbone.Collection.extend({
+// 	model: LikesModel,
+// 	url:
+// });

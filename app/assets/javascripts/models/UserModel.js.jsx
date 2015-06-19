@@ -7,6 +7,6 @@ var UserModel = Backbone.Model.extend({
 		email: null, 
 		bio: null
 	},
-	urlRoot:
+	urlRoot: "http://pair-programming-1.herokuapp.com/users",
 	idAttribute: "id"
 });
