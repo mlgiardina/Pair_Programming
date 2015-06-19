@@ -85,13 +85,13 @@ var Login = React.createClass({
 			bio: null
 		 });
 		
-		var user = userCollection.findWhere({username: currentUser.get("username")});
-		console.log(user);
+		//var user = userCollection.findWhere({username: currentUser.get("username")});
+		//console.log(user);
 		if(currentUser.isValid()){
-			console.log("user id:", currentUser.get("id"), "user password:", currentUser.get("password"));
-			// $.post("http://localhost:3000/login/",{id: currentUser.id, password: currentUser.password},function(data){
-			// 	console.log("Im logging and am getting back", data);
-			// },"json");
+			console.log("user id:", currentUser.get("username"), "user password:", currentUser.get("password"));
+			$.post("http://localhost:3000/login/",{username: currentUser.get("username"), password: currentUser.password},function(data){
+				console.log("Im logging and am getting back", data);
+			},"json");
 			this.props.routing.navigate("profile/"+currentUser.get("username"),{trigger: true});
 		} else {
 			console.log(currentUser.validationError);
