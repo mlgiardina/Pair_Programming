@@ -8,9 +8,9 @@ class MessagesController < ApplicationController
     authenticate_user!
     message = Message.new(message_params)
     if message.save
-      render json: { "Message sent!" }
+      render json: { message: "Message sent!" }
     else
-      render json: { "Error" }
+      render json: { message: "Error" }
     end
   end
 
