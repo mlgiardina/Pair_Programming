@@ -116,6 +116,7 @@ var Login = React.createClass({
 			email: "null", 
 			bio: null
 		 });
+		alert("hi");
 	
 		if(currentUser.isValid()){
 			var routes = this.props.routing;
