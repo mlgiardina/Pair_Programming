@@ -16,10 +16,10 @@ class MessagesController < ApplicationController
         end
         render json: sorted_messages
       else
-        render json: { message: "tried to access inbox of the wrong user!" }
+        render json: { message: "tried to access inbox of the wrong user!" }, status: 403
       end
     else
-      render json: { message: "user doesn't exist" }
+      render json: { message: "user doesn't exist" }, status: 404
     end
   end
 
@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
     if message.save
       render json: { message: "Message sent!" }
     else
-      render json: { message: "Error" }
+      render json: { message: "Error" }, status: 403
     end
   end
 
