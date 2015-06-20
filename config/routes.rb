@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get 'messages/inbox', to: 'messages#index'
+  get 'users/single', to: 'users#show'
 
   resources :users
   resources :answers
