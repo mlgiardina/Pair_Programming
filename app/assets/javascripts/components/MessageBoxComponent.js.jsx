@@ -34,7 +34,7 @@ var MessageBox = React.createClass({
 					return (<div><div>{message}</div></div>);
 				});
 				
-				return (<div>{header}:{body}</div>);
+				return (<div>{header}:{body}<br/><br/></div>);
 			});
 			return (
 				<div>

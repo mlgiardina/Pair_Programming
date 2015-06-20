@@ -13,8 +13,8 @@ var ProfilePage = React.createClass({
 				</div>
 				<div>
 					<div id="target-messagebox"></div>
-					<h1>Questionare</h1>
-					{questionare}
+					<br/>
+					<Match />
 				</div>
 			</div>
 			//TODO build out nice look profile page
