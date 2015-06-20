@@ -26,30 +26,25 @@
 
 .header-color{
      background:red;
-     }
+ 
+        .form-login {
+          float:right;
+          padding-bottom:25px;
+          margin-left:4%;
 
-
-.form-login {
-  float:right;
-  padding-bottom:25px;
-  margin-left:4%;
-
-    label{
-       
-
-     input{
-       width:20%;
-       margin-top:20px;
-       margin-right:3%;
-      }
-     }
-    } 
+            input{
+              width:20%;
+              margin-top:20px;
+              margin-right:3%;
+              }
+             }
+            }
 
 
 // body color---------------------------------------------------
 .body-color{
  background-color:pink;
- height:510px;
+ // height:510px;
   }
 
 
@@ -108,9 +103,8 @@
 
 .thirds{
    background-color:rgb(249,245,221);
-   
    width:100%;
-}
+
 
 img{
   border-radius:100px;
@@ -118,10 +112,108 @@ img{
   margin:30px auto;
   }
 
+}
+
 
 .delete{
   display:none;
   }
+
+// starting of profile page----------------------------------
+
+
+// header----------------------------------------------------
+.header-color{
+      
+      h1{
+          float:left;
+          padding-top:16px;
+          padding-bottom:16px;
+          }
+         }
+
+
+
+button{
+   margin-top:24px;
+   }
+
+
+  .button-right{
+    float:right;
+    margin-right:58px;
+    }
+
+// img and matches---------------------------------------------
+.delete{
+  display:none;
+  }
+
+.profile-bio{
+  background:yellow;
+  width:100%;
+  
+  img{
+    background-size:cover;
+    width:100%;
+    display:block;
+  }
+}
+
+.color{
+  background:orange;
+  
+}
+
+
+.profile-likes{
+  background:pink;
+  height:335px;
+  clear:both;
+  width:100%;
+  }
+
+// bio and likes---------------------------------------------
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @import "mediaqueries";

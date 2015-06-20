@@ -4,10 +4,10 @@
 
 
 
-
+// login page queries---------------------------------
 @media screen and (min-width: 800px) {
   .add{
-  display:inline-block;
+  display:block;
 }
   
   .off{
@@ -21,6 +21,75 @@
   .form-signup{
     max-width:50%;
   }
+
+// profile page----------------------------------
+
+  .header-color{
+      
+           h1{
+             float:left;
+             font-size:5em;
+             color:green;
+             }
+         }
+
+
+
+button{
+   margin-top:8px;
+   }
+
+.profile-bio{
+    width:23.5%;
+   /* margin-left:9.5%;*/
+    }
+
+.profile-likes{
+    display:block;
+    clear:none;
+    width:40%;
+    }
+
+
+  
+  
+  
+    
+  .matches{
+    clear:none;
+    float:left;
+    width:32%;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }/*end of 600 querie  */
 
 
@@ -37,5 +106,7 @@
     max-width:30%;
   }
   } /* end of 750 querie */
+
+  // profile page queries---------------------------------
 
 
