@@ -6,8 +6,13 @@ class MessagesController < ApplicationController
       if session[:user_id] == User.where(username: params[:username]).first.id
         sorted_messages = {}
         unique_users = User.all.distinct.pluck("username")
+        current_user = User.find(session[:user_id]).username
         unique_users.each do |user|
-          sorted_messages["#{user.username}"] = Message.where(:sender_name == user.username)
+          Message.all.each do |message|
+            if message.receiver_name == current_user
+            sorted_messages["#{user}"] = Message.where(sender_name: user)
+            end
+          end
         end
         render json: sorted_messages
       else
