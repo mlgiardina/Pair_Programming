@@ -4,7 +4,12 @@ class MessagesController < ApplicationController
     authenticate_user!
     if User.where(username: params[:username]).exists?
       if session[:user_id] == User.where(username: params[:username]).first.id
-        render json: Message.where(receiver_name: params[:username])
+        sorted_messages = {}
+        unique_users = User.all.distinct.pluck("username")
+        unique_users.each do |user|
+          sorted_messages["#{user.username}"] = Message.where(:sender_name == user.username)
+        end
+        render json: sorted_messages
       else
         render json: { message: "wrong user!" }
       end
