@@ -96,6 +96,7 @@ var Login = React.createClass({
 			 	$.post("http://localhost:3000/users/",{user: user.attributes}, function(data){
 			 		
 			 		userCollection.add(user);
+			 		console.log("error status: ",data.message);
 			 		if(data.message !== "error2"){
 			 			newRoute.navigate("profile/"+user.get("username"),{trigger: true});
 			 		}

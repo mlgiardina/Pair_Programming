@@ -6,7 +6,10 @@ var MessageBox = React.createClass({
 		 var propHolding = [];
 		
 			for(var thing in received){
-				propHolding.push(thing);
+				if(received[thing].length !== 0){
+					propHolding.push(thing);
+				}
+				
 			}
 			var headers = propHolding.map(function(header){
 				var body = received[header].map(function(message){

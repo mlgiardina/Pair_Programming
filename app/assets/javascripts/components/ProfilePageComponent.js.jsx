@@ -1,9 +1,10 @@
 var clicks = 0;
+var loggedInUser;
 var ProfilePage = React.createClass({
 	componentWillMount: function(){
 		$.get("http://localhost:3000/session/", function(data){
 			console.log("coming from inital: ",data);
-			var loggedInUser = data.username;
+			  loggedInUser = data.username;
 			
 		}, "json");
 	},
@@ -20,6 +21,7 @@ var ProfilePage = React.createClass({
 				<div id="send-message">
 				</div>
 				<div>
+					<a href="#profileForm">Edit Profile</a>
 					<div id="target-messagebox"></div>
 					<br/>
 					<Match user={this.props.user}/>
@@ -43,9 +45,11 @@ var ProfilePage = React.createClass({
 		
 		if(clicks%2===0){
 			var user = this.props.user;
-			$.get("http://localhost:3000/messages/inbox",{username: user},function(data){
+			console.log(loggedInUser);
+			$.get("http://localhost:3000/messages/inbox",{username: loggedInUser},function(data){
 				console.log("all message: ",data);
-				React.render(<MessageBox user={user} receivedMessages={data} />, document.getElementById("target-messagebox"));
+				
+				React.render(<MessageBox user={loggedInUser} receivedMessages={data} />, document.getElementById("target-messagebox"));
 			},"json");
 		} else {
 			React.render(<div></div>, document.getElementById("target-messagebox"));
