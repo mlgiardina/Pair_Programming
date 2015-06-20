@@ -14,13 +14,13 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       render json: { message: "user created and logged in" }
     else
-      render json: { message: "error2" }
+      render json: { message: "error2" }, status: 403
     end
   end
 
   def update
     authenticate_user!
-    user = User.find(params[:id])
+    user = User.find(session[:user_id])
     if user.update(user_params)
       render json: { message: "profile updated" }
     else

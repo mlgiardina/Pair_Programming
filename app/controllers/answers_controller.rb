@@ -5,8 +5,12 @@ class AnswersController < ApplicationController
   end
 
   def create
-    answer = Answer.create(answer_params)
-    render json: answer
+    authenticate_user!
+    answer = Answer.new(answer_params)
+    if answer.save
+      render json: { message: "answer created "}
+    else
+      render json: { message: "error" }, status: 403
   end
 
   private
