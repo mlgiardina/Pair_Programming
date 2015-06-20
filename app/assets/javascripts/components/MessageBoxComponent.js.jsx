@@ -1,28 +1,46 @@
 var MessageBox = React.createClass({
 
 	render: function(){
-		var userMessages = this.props.receivedMessages.map(function(obj){
-			var myObj = {};
-			for(var prop in obj){
-				if(prop === "sender_name"){
-					if(myObj.hasOwnProperty(prop){
-						continue;
-					} else {
-						myObj[prop] = [];
+		var received = this.props.receivedMessages;
+		console.log(received);
+		var myObj = {};
+		var propHolding = [];
+			for(var i = 0; i < received.length; i++){
+				for(var prop in received[i]){
+					if(prop === "sender_name"){
+						if(myObj.hasOwnProperty(prop)){
+							continue;
+						} else {
+							myObj[received[i][prop]] = [];
+						}
 					}
-					
-
 				}
 			}
-			return (<div key={obj.id}><a href="#" onCLick={this.displaySpecifcMessages}>{obj.sender_name}</a></div>);
-		});
-		return (
-			<div>
-				{this.props.user}
-					<div>
-						{userMessages}
-					</div>
-			</div>
+			for(var prop in myObj){
+				for(var i = 0; i < received.length; i++){
+					if(received[i]["sender_name"] === prop){
+						myObj[prop].push(received[i]["body"])
+					}
+				}
+			}
+
+			console.log(myObj);
+			for(var thing in myObj){
+				propHolding.push(thing);
+			}
+			var headers = propHolding.map(function(header){
+				var body = myObj[header].map(function(message){
+
+					return (<div><div>{message}</div></div>);
+				});
+				
+				return (<div>{header}:{body}</div>);
+			});
+			return (
+				<div>
+					{headers}
+					<br/>
+				</div>
 		);
 	}
 

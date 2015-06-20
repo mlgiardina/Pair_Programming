@@ -111,9 +111,7 @@ var Login = React.createClass({
 			email: "null", 
 			bio: null
 		 });
-		
-		//var user = userCollection.findWhere({username: currentUser.get("username")});
-		//console.log(user);
+	
 		if(currentUser.isValid()){
 			var routes = this.props.routing;
 			console.log("user id:", currentUser.get("username"), "user password:", currentUser.get("password"));
