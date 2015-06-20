@@ -18,6 +18,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    authenticate_user!
+    user = User.find(params[:id])
+    if user.update(user_params)
+      render json: { message: "profile updated" }
+    else
+      render json: { message: "ERROR"}, status: 403
+    end
+  end
+
   def destroy
     User.destroy(params[:id])
   end
@@ -25,7 +35,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :password, :password_confirmation, :picture, :bio, :email)
+    params.require(:user).permit(:name, :username, :password, :password_confirmation, :picture, :bio, :email)
   end
 
 end

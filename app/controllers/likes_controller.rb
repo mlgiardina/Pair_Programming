@@ -1,8 +1,8 @@
 class LikesController < ApplicationController
 
   def index
-    thing = Cloudinary::Uploader.upload('app/assets/images/skyline.jpg')
-    render json: thing
+    blah = Cloudinary::Uploader.upload('app/assets/images/skyline.jpg')
+    render json: blah
   end
 
   def create
