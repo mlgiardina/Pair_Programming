@@ -93,6 +93,7 @@ var Login = React.createClass({
 			 	console.log("I work");
 			 	this.props.routing.navigate("profile/"+user.get("username"),{trigger: true});
 			 	$.post("http://localhost:3000/users/",{user: user.attributes}, function(data){
+			 		console.log(data);
 			 		userCollection.add(user);
 			 	}, "json");
 		 	}

@@ -32,7 +32,7 @@ var ProfilePage = React.createClass({
 	displayMessageBox: function(event){
 		event.preventDefault();
 		var user = this.props.user;
-		$.get("http://localhost:3000/messages/"+user,{username: user},function(data){
+		$.get("http://localhost:3000/messages/inbox",{username: user},function(data){
 			console.log("all message: ",data);
 			React.render(<MessageBox user={user} receivedMessages={data} />, document.getElementById("target-messagebox"));
 
