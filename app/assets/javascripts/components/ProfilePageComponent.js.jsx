@@ -5,13 +5,21 @@ var ProfilePage = React.createClass({
 		$.get("http://localhost:3000/session/", function(data){
 			console.log("coming from inital: ",data);
 			  loggedInUser = data.username;
+			  userToUpdate = {
+			  				username: data.username,
+			  				name: data.name,
+							email: data.email,
+							bio: data.bio,
+							picture: data.picture};
 			
 		}, "json");
 	},
 	render: function(){
+		console.log("user is still logged in ",loggedInUser);
 		var questionare = this.props.questions.map(function(question){
 			return (<div key={question}>{question}</div>);
 		});
+		var that = this;
 		return (
 			<div>
 				<button onClick={this.logOut}>Logout</button>
@@ -21,7 +29,7 @@ var ProfilePage = React.createClass({
 				<div id="send-message">
 				</div>
 				<div>
-					<a href="#profileForm">Edit Profile</a>
+					<button onClick={this.showLoggedInUser}>Edit Profile</button>
 					<div id="target-messagebox"></div>
 					<br/>
 					<Match user={this.props.user}/>
@@ -30,7 +38,10 @@ var ProfilePage = React.createClass({
 			</div>
 			
 		);
-	}, 
+	},
+	showLoggedInUser: function(){
+		React.render(<BioForm user={userToUpdate}/>, containerEl);
+	},
 	logOut: function(){
 		$.get("http://localhost:3000/logout/",function(data){
 			console.log(data);

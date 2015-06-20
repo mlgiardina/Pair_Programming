@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   def update
     authenticate_user!
-    user = User.find(params[:id])
+    user = User.find(session[:user_id])
     if user.update(user_params)
       render json: { message: "profile updated" }
     else

@@ -19,7 +19,7 @@ var App = Backbone.Router.extend({
 		"":"login",
 		"login":"login",
 		"profile/:user":"profile",
-		"profileForm":"profileForm"
+		"profileForm/:user":"profileForm"
 
 	},
 	login: function() {
@@ -28,8 +28,8 @@ var App = Backbone.Router.extend({
 	profile: function(user){
 		React.render(<ProfilePage routing={myRouter} questions={questions} profileName={user} />, containerEl);
 	},
-	profileForm: function(){
-		React.render(<BioForm />, containerEl);
+	profileForm: function(user){
+		
 	}
 });
 
