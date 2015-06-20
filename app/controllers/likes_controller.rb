@@ -1,5 +1,9 @@
 class LikesController < ApplicationController
 
+  def index
+    Cloudinary::Uploader.upload('app/assets/images/skyline.jpg')
+  end
+
   def create
     like = Like.new(like_params)
     if like.save

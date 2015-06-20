@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     if current_user == nil
-      render json: { message: "you must be logged in to do that" }
+      render json: { message: "error3" }, status: 511
     end
   end
 
