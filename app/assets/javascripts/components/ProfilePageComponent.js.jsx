@@ -1,3 +1,4 @@
+var clicks = 0;
 var ProfilePage = React.createClass({
 	render: function(){
 		var questionare = this.props.questions.map(function(question){
@@ -8,7 +9,7 @@ var ProfilePage = React.createClass({
 				<button onClick={this.logOut}>Logout</button>
 				<button onClick={this.showMessageComponent}>Send Message</button>
 				hi {this.props.user}!
-				<a onClick={this.displayMessageBox} href="#">Message</a>
+				<a onClick={this.displayMessageBox} id="inbox-link" href="#">Message</a>
 				<div id="send-message">
 				</div>
 				<div>
@@ -31,11 +32,16 @@ var ProfilePage = React.createClass({
 	},
 	displayMessageBox: function(event){
 		event.preventDefault();
-		var user = this.props.user;
-		$.get("http://localhost:3000/messages/inbox",{username: user},function(data){
-			console.log("all message: ",data);
-			React.render(<MessageBox user={user} receivedMessages={data} />, document.getElementById("target-messagebox"));
-
-		},"json");
+		
+		if(clicks%2===0){
+			var user = this.props.user;
+			$.get("http://localhost:3000/messages/inbox",{username: user},function(data){
+				console.log("all message: ",data);
+				React.render(<MessageBox user={user} receivedMessages={data} />, document.getElementById("target-messagebox"));
+			},"json");
+		} else {
+			React.render(<div></div>, document.getElementById("target-messagebox"));
+		}
+		clicks++;
 	}
 });
