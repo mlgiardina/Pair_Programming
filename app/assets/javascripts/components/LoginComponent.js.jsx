@@ -111,13 +111,12 @@ var Login = React.createClass({
 			email: "null", 
 			bio: null
 		 });
-		
-		//var user = userCollection.findWhere({username: currentUser.get("username")});
-		//console.log(user);
+	
 		if(currentUser.isValid()){
 			var routes = this.props.routing;
 			console.log("user id:", currentUser.get("username"), "user password:", currentUser.get("password"));
-			$.post("http://localhost:3000/login/",{username: currentUser.get("username"), password: currentUser.get("password")},function(data){
+			$.post("http://localhost:3000/login/",{username: currentUser.get("username"), 
+				password: currentUser.get("password")},function(data){
 				console.log("Im logging and am getting back", data);
 				routes.navigate("profile/"+currentUser.get("username"),{trigger: true});
 			},"json");
