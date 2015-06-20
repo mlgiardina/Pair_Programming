@@ -5,7 +5,7 @@
 
 
 // login page queries---------------------------------
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 650px) {
   .add{
   display:block;
 }
@@ -21,6 +21,9 @@
   .form-signup{
     max-width:50%;
   }
+
+
+
 
 // profile page----------------------------------
 
@@ -39,27 +42,40 @@ button{
    margin-top:8px;
    }
 
-.profile-bio{
-    width:23.5%;
+.profile-img{
+      width:23%;
    /* margin-left:9.5%;*/
     }
 
-.profile-likes{
+.profile-bio{
     display:block;
     clear:none;
     width:40%;
     }
 
-
-  
-  
-  
+     .matches-likes{
+     clear:none;
+     float:left;
+     width:31.5%;
     
-  .matches{
-    clear:none;
-    float:left;
-    width:32%;
-    }
+     }
+
+   .questions-section{
+   	   width:65%;
+       }
+
+
+    .profile-bio{
+  
+      p{
+      	min-height:100px;
+      	
+
+      	
+        }
+  }
+
+
 
 
 

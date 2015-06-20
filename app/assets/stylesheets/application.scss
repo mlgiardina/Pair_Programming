@@ -121,6 +121,11 @@ img{
 
 // starting of profile page----------------------------------
 
+.border{
+    border-radius:10px;
+
+}
+
 
 // header----------------------------------------------------
 .header-color{
@@ -144,36 +149,71 @@ button{
     margin-right:58px;
     }
 
-// img and matches---------------------------------------------
+// img and bio---------------------------------------------
+
+h2{
+   text-align:center;
+
+
+}
 .delete{
   display:none;
   }
 
-.profile-bio{
-  background:yellow;
+.profile-img{
+  // background:yellow;
   width:100%;
+  min-height: 265px;
+
   
   img{
-    background-size:cover;
-    width:100%;
+    // background-size:cover;
+     // margin:0 auto;
+     width:100%;
+
     display:block;
   }
 }
 
 .color{
-  background:orange;
+   background:black;
   
 }
 
 
-.profile-likes{
+.profile-bio{
   background:pink;
-  height:335px;
   clear:both;
   width:100%;
-  }
 
-// bio and likes---------------------------------------------
+
+      p{
+      	line-height:1.4;
+      	font-size:1.25em;
+        }
+}
+
+// matches and likes---------------------------------------------
+
+
+.matches-likes{
+   height:200px;
+   background:red;
+   width:100%;
+}
+
+// question section---------------------------------------------
+
+
+.questions-section{
+	  width:100%;
+
+
+
+
+
+}
+
 
 
 
