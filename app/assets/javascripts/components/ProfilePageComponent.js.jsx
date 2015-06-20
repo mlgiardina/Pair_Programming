@@ -1,5 +1,12 @@
 var clicks = 0;
 var ProfilePage = React.createClass({
+	componentWillMount: function(){
+		$.get("http://localhost:3000/session/", function(data){
+			console.log("coming from inital: ",data);
+			var loggedInUser = data.username;
+			
+		}, "json");
+	},
 	render: function(){
 		var questionare = this.props.questions.map(function(question){
 			return (<div key={question}>{question}</div>);
@@ -17,8 +24,9 @@ var ProfilePage = React.createClass({
 					<br/>
 					<Match user={this.props.user}/>
 				</div>
+				{questionare}
 			</div>
-			//TODO build out nice look profile page
+			
 		);
 	}, 
 	logOut: function(){
@@ -28,7 +36,7 @@ var ProfilePage = React.createClass({
 		this.props.routing.navigate("login", {trigger: true});
 	}, 
 	showMessageComponent: function(){
-		React.render(<SendMessage routing={this.props.routing} user={this.props.user} />, document.getElementById("send-message"));
+		React.render(<SendMessage routing={this.props.routing} loggedInUser={loggedInUser} profileName={this.props.profileName} />, document.getElementById("send-message"));
 	},
 	displayMessageBox: function(event){
 		event.preventDefault();

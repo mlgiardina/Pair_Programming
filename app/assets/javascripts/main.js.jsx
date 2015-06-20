@@ -25,7 +25,7 @@ var App = Backbone.Router.extend({
 		React.render(<Login routing={myRouter}/>, containerEl);
 	},
 	profile: function(user){
-		React.render(<ProfilePage routing={myRouter} questions={questions} user={user} />, containerEl);
+		React.render(<ProfilePage routing={myRouter} questions={questions} profileName={user} />, containerEl);
 	}
 });
 
