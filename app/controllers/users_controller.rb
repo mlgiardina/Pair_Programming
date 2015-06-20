@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if User.exists?(username: params[:username])
+    if User.where(username: params[:username]).exists?
       render json: { message: "That username already exists. Please pick another one." }
     else
       user = User.new(user_params)
