@@ -13,6 +13,10 @@ class SessionsController < ApplicationController
     end
   end
 
+  def show
+    render json: User.find(session[:user_id])
+  end
+
   def destroy
     session[:user_id] = nil
     render json: { message: "logged out!" }

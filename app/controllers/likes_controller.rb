@@ -1,8 +1,12 @@
 class LikesController < ApplicationController
 
   def create
-    like = Like.create(like_params)
-    render json: like
+    like = Like.new(like_params)
+    if like.save
+      render json: { message: "like worked successfully" }
+    else
+      render json: { message: "error" }, status: 501
+    end
   end
 
   private
