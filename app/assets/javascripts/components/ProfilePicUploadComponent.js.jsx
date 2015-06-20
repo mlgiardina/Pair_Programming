@@ -1,7 +1,7 @@
 var UploadPhoto = React.createClass({
 	render: function(){
 		return (<div><input type="text"/><button onClick={this.uploadPhoto}>Upload</button>
-				<img ref="anImage" src="#"/></div>);
+				<img ref="anImage" src={this.props.userPic}/></div>);
 	},
 	uploadPhoto: function(event){
 		event.preventDefault();

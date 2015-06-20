@@ -7,11 +7,11 @@ var BioForm = React.createClass({
 	},
 	render: function(){
 		return (<div>
-					Name: <input ref="updateName" type="text" /><br/>
-					Email: <input ref="updateEmail" type="text" /><br/>
-					Bio: <textarea ref="updateBio"></textarea><br/>
+					Name: <input ref="updateName" type="text" value={userToUpdate.name}/><br/>
+					Email: <input ref="updateEmail" type="text" value={userToUpdate.email}/><br/>
+					Bio: <textarea ref="updateBio" value={userToUpdate.bio}></textarea><br/>
 					<button onClick={this.saveProfileInfo}>Save</button>
-					<UploadPhoto ref="updatePicture" />
+					<UploadPhoto userPic={userToUpdate.picture} ref="updatePicture" />
 				</div>
 		);
 	},
@@ -22,7 +22,7 @@ var BioForm = React.createClass({
 			data:{user:
 					{
 					id: userToUpdate.id,
-					picture:this.refs.updatePicture.getDOMNode().value, 
+					picture:this.refs.updatePicture.getDOMNode().src, 
 					bio: this.refs.updateBio.getDOMNode().value, 
 					email: this.refs.updateEmail.getDOMNode().value, 
 					name: this.refs.updateName.getDOMNode().value
