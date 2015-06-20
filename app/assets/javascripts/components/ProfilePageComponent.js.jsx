@@ -14,7 +14,7 @@ var ProfilePage = React.createClass({
 				<div>
 					<div id="target-messagebox"></div>
 					<br/>
-					<Match />
+					<Match user={this.props.user}/>
 				</div>
 			</div>
 			//TODO build out nice look profile page

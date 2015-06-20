@@ -7,8 +7,11 @@ var Match = React.createClass({
 		);
 	},
 	matchAlgorithm: function(){
-		$.get("http://localhost:3000/users", function(data){
-			console.log(data);
+		var user = this.props.user;
+		$.get("http://localhost:3000/users/single",{username: user},function(data){
+				console.log(data);
 		},"json");
+
+		// {answer: {username:"person", answers:array}}
 	}
 });

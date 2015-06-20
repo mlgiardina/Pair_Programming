@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       session[:user_id] = user.id
       render json: { message: "user created and logged in" }
     else
-      render json: { message: "That username or email already exists. Please pick another one." }
+      render json: { message: "error2" }
     end
   end
 
