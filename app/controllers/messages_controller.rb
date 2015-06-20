@@ -16,7 +16,7 @@ class MessagesController < ApplicationController
         end
         render json: sorted_messages
       else
-        render json: { message: "wrong user!" }
+        render json: { message: "tried to access inbox of the wrong user!" }
       end
     else
       render json: { message: "user doesn't exist" }
