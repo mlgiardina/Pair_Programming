@@ -87,13 +87,18 @@ var Login = React.createClass({
 		 var confirmPass = this.refs.newUserConfirmPassword.getDOMNode().value;
 
 		 if(user.isValid()){
+		 	var newRoute = this.props.routing;
 		 	if(newPasword !== confirmPass){
 		 		console.log("Passwords Do Not Match!")
 			 } else {
 			 	console.log("I work");
-			 	this.props.routing.navigate("profile/"+user.get("username"),{trigger: true});
+			 	
 			 	$.post("http://localhost:3000/users/",{user: user.attributes}, function(data){
+			 		
 			 		userCollection.add(user);
+			 		if(data.message !== "error2"){
+			 			newRoute.navigate("profile/"+user.get("username"),{trigger: true});
+			 		}
 			 	}, "json");
 		 	}
 		 } else {
@@ -111,6 +116,7 @@ var Login = React.createClass({
 			email: "null", 
 			bio: null
 		 });
+		alert("hi");
 	
 		if(currentUser.isValid()){
 			var routes = this.props.routing;
