@@ -4,6 +4,7 @@ var MessageBox = React.createClass({
 		var received = this.props.receivedMessages;
 		console.log(received);
 		var myObj = {};
+		var propHolding = [];
 		    for(var i = 0; i < received.length; i++){
 		        for(var prop in received[i]){
 		        	if(prop === "sender_name"){
@@ -25,14 +26,19 @@ var MessageBox = React.createClass({
 
 		    console.log(myObj);
 		    for(var thing in myObj){
-				var userMessages = myObj[thing].map(function(obj){
-					console.log(obj);
-					return (<div>{thing}:{obj}</div>);
-				});
+				propHolding.push(thing);
 			}
+			var headers = propHolding.map(function(header){
+				var body = myObj[header].map(function(message){
+
+					return (<div><div>{message}</div></div>);
+				});
+				
+				return (<div>{header}:{body}</div>);
+			});
 		return (
 			<div>
-				{userMessages}
+				{headers}
 			</div>
 		);
 	}
