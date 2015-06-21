@@ -24,11 +24,11 @@ $gut:2%;
   .col2 {
   @include grid(2);
       min-height:100px;
-      // background:red;
+       // background:teal;
   }
   .col3 {
   @include grid(3);
-  // background:blue;
+   // background:teal;
    min-height:20px;
   }
   .col4 {
@@ -39,7 +39,7 @@ $gut:2%;
   .col5 {
   @include grid(5);
   background:orange;
-   min-height:20px;
+   
   }
   .col6 {
   @include grid(6);

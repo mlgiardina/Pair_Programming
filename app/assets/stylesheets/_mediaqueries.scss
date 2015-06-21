@@ -33,7 +33,7 @@
   
   img{
       background-size:cover;
-      width:60%;
+      width:30%;
       margin:0 auto;
 
 
@@ -42,6 +42,34 @@
   }
 }
 
+
+// .matches{
+
+    
+//    img{
+      
+//        width:60%;
+
+//            }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+.move{
+    font-size:1.3em;
+    max-height:500px;
+
+}
 
 
 
@@ -76,7 +104,7 @@
 }/*end of 600 querie  */
 
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 900px) {
   .add{
     display:inline-block
     }
@@ -113,14 +141,31 @@
 }
 
 
+.move{
+	display:none;
+}
+
+.delete-h2{
+	display:none;
+}
+
+
+.bio{
+display:block;
 
 
 
+.col5{
+   	width:46%;
+   	top:15px;
 
+   }
 
+}
 
-
-
+.bringback{
+	display:block;
+}
 
 
 

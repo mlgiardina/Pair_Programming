@@ -181,26 +181,36 @@ button{
 
 .profile-img{
    width:100%;
+   	 background:#19191B;
   
 
   
   img{
       background-size:cover;
       border-radius:5px;
-      width:80%;
-      margin:0 auto;
-
-
-
-    display:block;
+      width:35%;
+      display:block;
+      float:left;
   }
 }
 
+.move{
+    
+   
+    bottom:20px;
+    display:block;
+            float:left;
+            width:60%;
+            max-height:100px;
+            text-align: left;
+             margin-left:10px;
+            
+   }
 
 
 .matches-section{
 	width:100%;
-	 background:linear-gradient(#4d4d4d, #2f2f2f);
+	 background:#19191B;
 
 }
 
@@ -215,13 +225,32 @@ button{
        display:block;
        margin:0 auto;
        border-radius:5px;
+       width:80%;
 
            }
+}
 
-    
+
+.bio{
+	
+   .col3{
+     width:18%;
+
+
+   }
+
+  
 
 
 }
+
+ .col5{
+ 	width:100%;
+ 	position:relative;
+ 	bottom:100px;
+
+   	
+   }
 
 
 
