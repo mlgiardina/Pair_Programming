@@ -74,7 +74,13 @@ var ProfilePage = React.createClass({
 													body: ans
 													}
 												},function(){
-													console.log("answers posted!");
+													$.get("http://localhost:3000/answers/", function(data){
+														var loggedIn = data;
+														$.get("http://localhost:300/answers/all",function(users){
+															startMatching(data, users);
+														})
+														
+													})
 												} ,"json");
 	},
 	showLoggedInUser: function(){
