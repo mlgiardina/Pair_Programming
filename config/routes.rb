@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   put 'users', to: 'users#update'
   post 'answers', to: 'answers#create'
   get 'answers', to: 'answers#show'
+  get 'answers/all', to: 'answers#index'
 
   resources :users
   resources :likes
