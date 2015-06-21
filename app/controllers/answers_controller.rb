@@ -1,7 +1,11 @@
 class AnswersController < ApplicationController
 
   def index
-    answers = Answer.where.not(user_id: session[:user_id])
+    answers = []
+    users = User.where.not(id: session[:user_id])
+    users.each do |user|
+      answers.push(user.answers.last)
+    end
     render json: answers
   end
 
