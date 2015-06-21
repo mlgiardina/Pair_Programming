@@ -76,11 +76,11 @@ var ProfilePage = React.createClass({
 												},function(){
 													$.get("http://localhost:3000/answers/", function(data){
 														var loggedIn = data;
-														$.get("http://localhost:300/answers/all",function(users){
-															startMatching(data, users);
-														})
+														$.get("http://localhost:3000/answers/all",function(users){
+															startMatching(loggedIn, users);
+														});
 														
-													})
+													});
 												} ,"json");
 	},
 	showLoggedInUser: function(){
@@ -112,3 +112,11 @@ var ProfilePage = React.createClass({
 		clicks++;
 	}
 });
+function startMatching(loggedInUser, everyoneElse){
+	console.log("logged in Users data",loggedInUser);
+	console.log("everyone elses data",everyoneElse);
+}
+
+
+
+
