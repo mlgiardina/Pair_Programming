@@ -96,6 +96,7 @@ var Login = React.createClass({
 			 	$.post("http://localhost:3000/users/",{user: user.attributes}, function(data){
 			 		
 			 		userCollection.add(user);
+			 		console.log("error status: ",data.message);
 			 		if(data.message !== "error2"){
 			 			newRoute.navigate("profile/"+user.get("username"),{trigger: true});
 			 		}
@@ -116,14 +117,12 @@ var Login = React.createClass({
 			email: "null", 
 			bio: null
 		 });
-		alert("hi");
 	
 		if(currentUser.isValid()){
 			var routes = this.props.routing;
 			console.log("user id:", currentUser.get("username"), "user password:", currentUser.get("password"));
 			$.post("http://localhost:3000/login/",{username: currentUser.get("username"), 
 				password: currentUser.get("password")},function(data){
-				console.log("Im logging and am getting back", data);
 				routes.navigate("profile/"+currentUser.get("username"),{trigger: true});
 			},"json");
 			
