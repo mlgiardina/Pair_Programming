@@ -30,6 +30,11 @@ h2{
    text-align:center;
    color:#62E0FF;
    font-size:1.7em;
+}
+
+h3{
+  color:#999;
+  text-align: center;
 
 
 }
@@ -175,15 +180,17 @@ button{
   }
 
 .profile-img{
-  // background:yellow;
-  width:100%;
-  min-height: 265px;
+   width:100%;
+  
 
   
   img{
-    // background-size:cover;
-     // margin:0 auto;
-     width:100%;
+      background-size:cover;
+      border-radius:5px;
+      width:80%;
+      margin:0 auto;
+
+
 
     display:block;
   }
@@ -191,40 +198,30 @@ button{
 
 
 
-.profile-bio{
-  background:pink;
-  clear:both;
-  width:100%;
-
-
-      p{
-      	line-height:1.4;
-      	font-size:1.25em;
-        }
-}
-
-// matches and likes---------------------------------------------
-
-
-.matches-likes{
-   height:200px;
-   background:red;
-   width:100%;
-}
-
-// question section---------------------------------------------
-
-
-.questions-section{
-	  width:100%;
-
-
-
-
+.matches-section{
+	width:100%;
+	 background:linear-gradient(#4d4d4d, #2f2f2f);
 
 }
 
+.matches{
 
+    width:32%;
+    
+
+
+   
+    img{
+       display:block;
+       margin:0 auto;
+       border-radius:5px;
+
+           }
+
+    
+
+
+}
 
 
 

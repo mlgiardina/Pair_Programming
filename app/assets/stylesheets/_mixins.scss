@@ -19,36 +19,42 @@ $gut:2%;
         /* margin-bottom: 5px; */
        }
 
-  .col6 {
-  @include grid(6);
-  }
+  
 
   .col2 {
   @include grid(2);
-     min-height:200px;
-     background:blue;
-     clear:both;
-    
-     
+      min-height:100px;
+      // background:red;
   }
   .col3 {
   @include grid(3);
-  // min-height:200px;
-  //    background:blue;
+  // background:blue;
+   min-height:20px;
   }
   .col4 {
   @include grid(4);
+  background:purple;
+   min-height:20px;
   }
   .col5 {
   @include grid(5);
+  background:orange;
+   min-height:20px;
+  }
+  .col6 {
+  @include grid(6);
+   min-height:20px;
+   // background:pink;
   }
   .col7 {
   @include grid(7);
+  min-height:20px;
   }
   .col8 {
   @include grid(8);
-  min-height:200px;
+  // min-height:200px;
      background:blue;
+      min-height:20px;
   
   
   }
@@ -57,6 +63,8 @@ $gut:2%;
   }
   .col12{
   @include grid(12);
+
+
   } 
   div:last-of-type {
   margin-right: 0;

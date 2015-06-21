@@ -5,7 +5,7 @@
 
 
 // login page queries---------------------------------
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 550px) {
   .add{
   display:block;
 }
@@ -22,58 +22,25 @@
     width:40%;
   }
 
+.delete{
+   display:none;
 
-
-
-// profile page----------------------------------
-
-  .header-color{
-      
-           h1{
-             float:left;
-             font-size:5em;
-             color:green;
-             }
-         }
-
-
-
-button{
-   margin-top:8px;
-   }
-
-.profile-img{
-      width:23%;
-   /* margin-left:9.5%;*/
-    }
-
-.profile-bio{
-    display:block;
-    clear:none;
-    width:40%;
-    }
-
-     .matches-likes{
-     clear:none;
-     float:left;
-     width:31.5%;
-    
-     }
-
-   .questions-section{
-   	   width:65%;
-       }
-
-
-    .profile-bio{
+}
+  .profile-img{
+   width:100%;
   
-      p{
-      	min-height:100px;
-      	
 
-      	
-        }
+  
+  img{
+      background-size:cover;
+      width:60%;
+      margin:0 auto;
+
+
+
+    display:block;
   }
+}
 
 
 
@@ -109,7 +76,7 @@ button{
 }/*end of 600 querie  */
 
 
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 700px) {
   .add{
     display:inline-block
     }
@@ -121,7 +88,46 @@ button{
    .form-signup{
     width:25%;
   }
-  } /* end of 750 querie */
+
+
+  .profile-img{
+  width:18%;
+    img{
+     background-size:cover;
+      width:100%;
+       margin:0 auto;
+       }
+}
+
+.matches-section{
+	width:46%;
+	border-radius:5px;
+	  p{
+       padding-bottom:17px;
+
+	  }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+} /* end of 750 querie */
 
   // profile page queries---------------------------------
 
