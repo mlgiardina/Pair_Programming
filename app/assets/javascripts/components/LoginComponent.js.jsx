@@ -78,9 +78,10 @@ var Login = React.createClass({
 			username: this.refs.newUser.getDOMNode().value,
 			password_confirmation: this.refs.newUserPassword.getDOMNode().value,
 			password: this.refs.newUserPassword.getDOMNode().value,
-			picture: null, 
+			picture: "", 
 			email: this.refs.newUserEmail.getDOMNode().value, 
-			bio: null
+			bio: "",
+			name: ""
 		 });
 
 		 var newPasword = this.refs.newUserPassword.getDOMNode().value;
