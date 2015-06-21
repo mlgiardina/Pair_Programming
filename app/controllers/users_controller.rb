@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def update
     authenticate_user!
     user = User.find(session[:user_id])
+    user.picture = Cloudinary::Uploader.upload(params[:user][:picture])
     if user.update(user_params)
       render json: { message: "profile updated" }
     else

@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
     authenticate_user!
     answer = Answer.new(answer_params)
     if answer.save
-      render json: { message: "answer created "}
+      render json: { message: "questions answered" }
     else
       render json: { message: "error" }, status: 403
   end
