@@ -1,9 +1,9 @@
 class CreateMessages < ActiveRecord::Migration
   def change
     create_table :messages do |t|
-      t.integer :sender_id
-      t.integer :receiver_id
-      t.text :body
+      t.string :sender_name, null: false
+      t.string :receiver_name, null: false
+      t.text :body, null: false
 
       t.timestamps null: false
     end
