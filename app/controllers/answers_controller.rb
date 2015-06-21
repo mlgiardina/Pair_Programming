@@ -1,7 +1,8 @@
 class AnswersController < ApplicationController
 
   def index
-    render json: Answer.all
+    answers = Answer.where.not(user_id: session[:user_id])
+    render json: answers
   end
 
   def show
