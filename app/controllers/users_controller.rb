@@ -21,14 +21,7 @@ class UsersController < ApplicationController
   def update
     authenticate_user!
     user = User.find(session[:user_id])
-    new_user_params = {
-      user: {
-        picture: Cloudinary::Uploader.upload(params[:user][:picture]),
-        name: params[:user][:name],
-        bio: params[:user][:bio]
-      }
-    }
-    if user.update(new_user_params)
+    if user.update(user_params)
       render json: { message: "profile updated" }
     else
       render json: { message: "ERROR"}, status: 403
