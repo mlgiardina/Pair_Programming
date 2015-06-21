@@ -8,7 +8,7 @@ class AnswersController < ApplicationController
     authenticate_user!
     answer = Answer.where(user_id: session[:user_id]).first
     answer.body = answer.body.split("~")
-    render json: { answer }
+    render json: answer
   end
 
   def create
