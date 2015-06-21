@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get 'users/single', to: 'users#show'
   get 'session', to: 'sessions#show'
   put 'users', to: 'users#update'
+  post 'answers', to: 'answers#create'
+  get 'answers', to: 'answers#show'
 
   resources :users
-  resources :answers
   resources :likes
   resources :messages
 

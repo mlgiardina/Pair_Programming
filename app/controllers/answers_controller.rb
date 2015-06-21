@@ -5,8 +5,9 @@ class AnswersController < ApplicationController
   end
 
   def show
-    answer = Answer.where(user_id: params[:user_id]).first
-    answer.body = answer.body.split["~"]
+    authenticate_user!
+    answer = Answer.where(user_id: session[:user_id]).first
+    answer.body = answer.body.split("~")
     render json: { answer }
   end
 
@@ -19,7 +20,6 @@ class AnswersController < ApplicationController
     else
       render json: { message: "error" }, status: 403
     end
-
   end
 
   private
