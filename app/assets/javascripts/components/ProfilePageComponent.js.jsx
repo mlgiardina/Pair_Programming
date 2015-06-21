@@ -27,16 +27,17 @@ var ProfilePage = React.createClass({
 			<div className="header-color col12">
 				<h1>Pair Programming</h1>
                 <button className="button-right" onClick={this.logOut}>Logout</button>
+                <button onClick={this.showMessageComponent}>Send Message</button>
 			<div>
 				<button onClick={this.logOut}>Logout</button>
-				<button onClick={this.showMessageComponent}>Send Message</button>
+				
 				hi {this.props.user}!
 				<a onClick={this.displayMessageBox} id="inbox-link" href="#">Message</a>
 				<div id="send-message">
 				</div>
 				<div>
 					<button onClick={this.showLoggedInUser}>Edit Profile</button>
-					<div id="target-messagebox"></div>
+					
             </div>
 
 			</div>	
@@ -72,6 +73,7 @@ var ProfilePage = React.createClass({
 
                 <div className=" border matches-likes col4">
                 	<h2>Likes</h2>
+                	<div id="target-messagebox"></div>
                 </div>
 
                 </div>
