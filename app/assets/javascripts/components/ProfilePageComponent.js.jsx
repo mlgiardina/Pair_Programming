@@ -6,19 +6,15 @@ var answers = [["OS X", "Windows", "Linux"],["Agree","Neutral","Disagree"],
 ["Brackets!","Literal!","Objects?"],["Spaces","Tabs","I like to watch the world burn.. both"],
 ["Firefox","Chrome","IE8"],["StartUps are my jam!","Give me a suit and tie!","I like working from home!"]];
 
-$.get("http://localhost:3000/answers/", function(data){
-		var loggedIn = data;
-});
-
 var ProfilePage = React.createClass({
 	componentWillMount: function(){
 		$.get("http://localhost:3000/session/", function(data){
 			console.log("coming from inital: ",data);
 			  loggedInUser = data.username;
 			  userToUpdate = {
-			  				id: data.id,
-			  				username: data.username,
-			  				name: data.name,
+							id: data.id,
+							username: data.username,
+							name: data.name,
 							email: data.email,
 							bio: data.bio,
 							picture: data.picture};
@@ -46,105 +42,72 @@ var ProfilePage = React.createClass({
 
 		var that = this;
 		return (
-
-
-			// profile page html-------------------------------
-            
 			<div className=" body-color col12">
-			<header>
-				<h1>Pair Programming</h1>
-				  <button className="button-right" onClick={this.logOut}>Logout</button>
-                <button onClick={this.showMessageComponent}>Send Message</button>
-                <button onClick={this.showLoggedInUser}>Edit Profile</button>
-			</header>
-          
-            
-			
-        
-           <div>
-                <div className="col2 add delete "></div>
+				<header>
+					<h1>Pair Programming</h1>
+					  <button className="button-right" onClick={this.logOut}>Logout</button>
+					<button onClick={this.showMessageComponent}>Send Message</button>
+					<button onClick={this.showLoggedInUser}>Edit Profile</button>
+				</header>
+			   <div>
+				   <div className="col2 add delete "></div>
 
-                <div className=" body-color profile-img col2">
-                	<img src="http://fillmurray.com/200/200"/>
-                	
-                	<h2 className="delete-h2">Bill Murray</h2>
-                	<p className="move">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                	 five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
-    	        </div>
-
-               
-
-            	<div className="col6 matches-section add ">
-                	<h2>Your Matches</h2>
-                	<div  className="matches col2 ">
-                		<img src="http://fillmurray.com/150/150"/>
-                		<h3>Bill Murray</h3>
-                	 	<p>Austin TX</p>
-                    	<p>Coder</p>
-                	</div>
-                	<div className=" matches  col2 ">
-                    	<img src="http://fillmurray.com/150/150"/>
-                    	<h3>Bill Murray</h3>
-                    	<p>Austin TX</p>
-                    	<p>Coder</p>
-
-                	</div>
-                	<div className=" matches col2 ">
-                    	<img src="http://fillmurray.com/150/150"/>
-                    	<h3>Bill Murray</h3>
-                    	 <p>Austin TX</p>
-                    	 <p>Coder</p>
-                    </div>
-                </div>
-
-                <div className="col2 add delete"></div>
-            	</div>
-
-
-
-            	<div className="bio">
-            	<div className="col2"></div>
-                <div className="col3">
-                 	<h2 className="delete bringback">Bill Murray</h2>
-                 	<p className="delete text-fix bringback">five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                	    five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
-                </div>
-                 		<div className="col5">
-                 			<h2>Questions</h2>
-
-			<div>
-				<a onClick={this.displayMessageBox} id="inbox-link" href="#">Message</a>
-				<div id="send-message">
+				   <div className=" body-color profile-img col2">
+						<img src="http://fillmurray.com/200/200"/>
+						
+						<h2 className="delete-h2">Bill Murray</h2>
+						<p className="move">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+						 five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
 				</div>
+					<div className="col6 matches-section add ">
+						<h2>Your Matches</h2>
+						<div  className="matches col2 ">
+							<img src="http://fillmurray.com/150/150"/>
+							<h3>Bill Murray</h3>
+							<p>Austin TX</p>
+							<p>Coder</p>
+						</div>
+						<div className=" matches  col2 ">
+							<img src="http://fillmurray.com/150/150"/>
+							<h3>Bill Murray</h3>
+							<p>Austin TX</p>
+							<p>Coder</p>
+
+						</div>
+						<div className=" matches col2 ">
+							<img src="http://fillmurray.com/150/150"/>
+							<h3>Bill Murray</h3>
+							 <p>Austin TX</p>
+							 <p>Coder</p>
+						</div>
+					</div>
+					<div className="col2 add delete"></div>
+					</div>
+					<div className="bio">
+					<div className="col2"></div>
+					<div className="col3">
+						<h2 className="delete bringback">Bill Murray</h2>
+						<p className="delete text-fix bringback">five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+							five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
+					</div>
+							<div className="col5">
+								<h2>Questions</h2>
 				<div>
-					
-					<div id="target-messagebox"></div>
-					<br/>
+					<a onClick={this.displayMessageBox} id="inbox-link" href="#">Message</a>
+					<div id="send-message">
+					</div>
+					<div>
+						
+						<div id="target-messagebox"></div>
+						<br/>
+					</div>
+					{questionare}
+					<button onClick={this.submitQuestions}>Save</button>
+				</div>	
 				</div>
-				{questionare}
-				<button onClick={this.submitQuestions}>Save</button>
-			</div>	
-
-
-
-
-
-
-
-
-                		</div>
-             		<div className="col2"></div>
-                </div>
-           </div>
-        	
-
-                
-
-   
-
-
-    
-
+					<div className="col2"></div>
+				</div>
+		   </div>
 		);
 	},
 	submitQuestions: function(){
