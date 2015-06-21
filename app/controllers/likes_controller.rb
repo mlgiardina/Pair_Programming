@@ -1,11 +1,10 @@
 class LikesController < ApplicationController
 
   def index
-    blah = Cloudinary::Uploader.upload('app/assets/images/skyline.jpg')
-    render json: blah
   end
 
   def create
+    authenticate_user!
     like = Like.new(like_params)
     if like.save
       render json: { message: "like worked successfully" }
