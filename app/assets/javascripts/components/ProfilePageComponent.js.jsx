@@ -1,17 +1,41 @@
+var clicks = 0;
+var loggedInUser;
 var ProfilePage = React.createClass({
+	componentWillMount: function(){
+		$.get("http://localhost:3000/session/", function(data){
+			console.log("coming from inital: ",data);
+			  loggedInUser = data.username;
+			  userToUpdate = {
+			  				username: data.username,
+			  				name: data.name,
+							email: data.email,
+							bio: data.bio,
+							picture: data.picture};
+			
+		}, "json");
+	},
 	render: function(){
+		console.log("user is still logged in ",loggedInUser);
 		var questionare = this.props.questions.map(function(question){
 			return (<div key={question}>{question}</div>);
 		});
+		var that = this;
 		return (
 
-			// profile page html--------------------------------
-			<div>
+			// profile page html-------------------------------
 
 			<div className="header-color col12">
 				<h1>Pair Programming</h1>
                 <button className="button-right" onClick={this.logOut}>Logout</button>
 			<div>
+				<button onClick={this.logOut}>Logout</button>
+				<button onClick={this.showMessageComponent}>Send Message</button>
+				hi {this.props.user}!
+				<a onClick={this.displayMessageBox} id="inbox-link" href="#">Message</a>
+				<div id="send-message">
+				</div>
+				<div>
+					<button onClick={this.showLoggedInUser}>Edit Profile</button>
 					<div id="target-messagebox"></div>
             </div>
 
@@ -58,61 +82,13 @@ var ProfilePage = React.createClass({
                    		<h2>Questions</h2>
 				   </div>
 				</div>
-
-      
-         
-
-
-			
-
-
-
-
-		
-	
-		
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
 			</div>
-			//TODO build out nice look profile page
+			
 		);
-	}, 
+	},
+	showLoggedInUser: function(){
+		React.render(<BioForm user={userToUpdate}/>, containerEl);
+	},
 	logOut: function(){
 		$.get("http://localhost:3000/logout/",function(data){
 			console.log(data);
@@ -120,15 +96,22 @@ var ProfilePage = React.createClass({
 		this.props.routing.navigate("login", {trigger: true});
 	}, 
 	showMessageComponent: function(){
-		React.render(<SendMessage routing={this.props.routing} user={this.props.user} />, document.getElementById("send-message"));
+		React.render(<SendMessage routing={this.props.routing} loggedInUser={loggedInUser} profileName={this.props.profileName} />, document.getElementById("send-message"));
 	},
 	displayMessageBox: function(event){
 		event.preventDefault();
-		var user = this.props.user;
-		$.get("http://localhost:3000/messages/"+user,{username: user},function(data){
-			console.log("all message: ",data);
-			React.render(<MessageBox user={user} receivedMessages={data} />, document.getElementById("target-messagebox"));
-
-		},"json");
+		
+		if(clicks%2===0){
+			var user = this.props.user;
+			console.log(loggedInUser);
+			$.get("http://localhost:3000/messages/inbox",{username: loggedInUser},function(data){
+				console.log("all message: ",data);
+				
+				React.render(<MessageBox user={loggedInUser} receivedMessages={data} />, document.getElementById("target-messagebox"));
+			},"json");
+		} else {
+			React.render(<div></div>, document.getElementById("target-messagebox"));
+		}
+		clicks++;
 	}
 });
