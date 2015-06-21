@@ -7,7 +7,7 @@ class AnswersController < ApplicationController
   def show
     answer = Answer.where(user_id: params[:user_id]).first
     answer.body = answer.body.split["~"]
-    render json: { }
+    render json: { answer }
   end
 
   def create
