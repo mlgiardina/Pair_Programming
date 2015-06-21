@@ -11,6 +11,7 @@ class AnswersController < ApplicationController
       render json: { message: "questions answered" }
     else
       render json: { message: "error" }, status: 403
+    end
   end
 
   private

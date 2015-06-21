@@ -60,9 +60,13 @@ var ProfilePage = React.createClass({
 			console.log($("input[name=question-"+i+"]:checked"));
 			ans.push($("input[name=question-"+i+"]:checked").val());
 		}
+		
 		$.post("http://localhost:3000/answers/",{answer: 
-												{id: userToUpdate.id,
-												body:ans}},function(){
+													{
+													user_id: userToUpdate.id,
+													body: ans
+													}
+												},function(){
 													console.log("answers posted!");
 												} ,"json");
 	},
