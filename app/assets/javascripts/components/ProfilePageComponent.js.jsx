@@ -6,7 +6,6 @@ var ProfilePage = React.createClass({
 		return (
 
 			// profile page html--------------------------------
-			<div>
 
 			<div className="header-color col12">
 				<h1>Pair Programming</h1>
@@ -51,59 +50,15 @@ var ProfilePage = React.createClass({
 					<div className=" col2 add delete"></div>
 					<div className="border col8 questions-section">
                    		<h2>Questions</h2>
+                   			<a onClick={this.displayMessageBox} href="#">Message</a>
+                	<div id="send-message">
+                	<button  onClick={this.showMessageComponent}>Send Message</button>
 				   </div>
+
+					<br/>
+					<Match user={this.props.user}/>
+
 				</div>
-
-      
-         
-
-
-			
-
-
-
-
-		
-	
-		
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-			
 			</div>
 			//TODO build out nice look profile page
 		);
@@ -120,7 +75,7 @@ var ProfilePage = React.createClass({
 	displayMessageBox: function(event){
 		event.preventDefault();
 		var user = this.props.user;
-		$.get("http://localhost:3000/messages/"+user,{username: user},function(data){
+		$.get("http://localhost:3000/messages/inbox",{username: user},function(data){
 			console.log("all message: ",data);
 			React.render(<MessageBox user={user} receivedMessages={data} />, document.getElementById("target-messagebox"));
 

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
-  get 'messages/:username', to: 'messages#index'
+
+  get 'messages/inbox', to: 'messages#index'
+  get 'users/single', to: 'users#show'
+  get 'session', to: 'sessions#show'
+  put 'users', to: 'users#update'
 
   resources :users
   resources :answers
@@ -11,4 +15,5 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy', as: 'logout'
 
   root 'application#index'
+
 end
