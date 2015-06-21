@@ -6,13 +6,13 @@
 
 // login page queries---------------------------------
 @media screen and (min-width: 550px) {
-//   .add{
-//   display:block;
-// }
+  .add{
+  display:block;
+}
   
-  // .off{
-  // display:none;
-  // }
+  .off{
+  display:none;
+  }
   
 .thirds{
  width:49%;
@@ -24,11 +24,12 @@
 
 .delete{
    display:none;
+}
 
 
    // profile page-------------------
 
-}
+
   .profile-img{
    width:100%;
   
@@ -38,71 +39,15 @@
       background-size:cover;
       width:30%;
       margin:0 auto;
-
-
-
-    display:block;
-  }
-}
-
-
-// .matches{
-
-    
-//    img{
-      
-//        width:60%;
-
-//            }
-// }
-
-
-
-
-
-
-
-
-
-
-
+      display:block;
+      }
+     }
 
 
 .move{
     font-size:1.3em;
     max-height:500px;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 }/*end of 600 querie  */
 
@@ -176,6 +121,14 @@ display:block;
 	display:block;
 }
 
+
+
+.messages{
+    margin-top:10px;
+	width:100%;
+	display:block;
+
+} 
 
 
 

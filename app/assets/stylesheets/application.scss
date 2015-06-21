@@ -27,7 +27,7 @@ p{
 }
 
 h2{
-   text-align:center;
+    text-align:center;
    color:#62E0FF;
    font-size:1.7em;
 }
@@ -73,6 +73,10 @@ h3{
 
 // body color---------------------------------------------------
 
+.body-color{
+ background-color:#252527;
+  }
+
 .logo{
 	h1{
        font-size:3em;
@@ -84,14 +88,13 @@ h3{
     }
 }
 
+.btn{
+	margin-top:20px;
+}
 
 
 
 
-.body-color{
- background-color:#252527;
- // height:510px;
-  }
 
 
 
@@ -199,32 +202,19 @@ header{
          
 
 
+ button{
+   margin-top:24px;
+   margin-right:20px;
+   }
 }
 
-
-     button{
-          float:left;
-
-     }
-
-
-
-
-      
-
-
-
-button{
-   margin-top:24px;
-   }
-
-
-  .button-right{
-       float:right;
-       margin-right:58px;
-    }
-
+ 
 // img and bio---------------------------------------------
+
+
+.left-align{
+	text-align:left;
+}
 
 
 .delete{
@@ -286,11 +276,18 @@ button{
 
 .questions-section{
      margin-top:20px;
+     background:#1C1C1C;
      }
 
 
 
- 
+.messages{
+    margin-top:10px;
+	width:100%;
+	display:none;
+
+} 
+
 
 
 

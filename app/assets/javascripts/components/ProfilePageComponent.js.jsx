@@ -67,9 +67,9 @@ var ProfilePage = React.createClass({
                 <div className=" body-color profile-img col2">
                 	<img src="http://fillmurray.com/200/200"/>
                 	
-                	<h2 className="delete-h2">Bill Murray</h2>
+                	<h2 className="delete-h2 left-align">Bill Murray</h2>
                 	<p className="move">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                	 </p>
+                	</p>
     	        </div>
 
                
@@ -105,10 +105,16 @@ var ProfilePage = React.createClass({
             	<div className="bio">
             	<div className="col2"></div>
                 <div className="col3">
-                 	<h2 className="delete bringback">Bill Murray</h2>
-                 	<p className="delete text-fix bringback">five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                	    five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
+                 	<h2 className="delete bringback left-align">Bill Murray</h2>
+                 	<p className="delete text-fix bringback">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release</p>
+                	    <div className="col2 messages">
+                	    <button onClick={this.showMessageComponent}>Send Message</button>
+                	    <div id="send-message"></div>
+                	    </div>
                 </div>
+
+
+
                  		<div className="questions-section col5">
                  			<h2>Questions</h2>
 
@@ -118,8 +124,7 @@ var ProfilePage = React.createClass({
 
 			<div>
 				<a onClick={this.displayMessageBox} id="inbox-link" href="#">Message</a>
-				<div id="send-message">
-				</div>
+				
 				<div>
 					
 					<div id="target-messagebox"></div>
@@ -128,17 +133,19 @@ var ProfilePage = React.createClass({
 				{questionare}
 				<button onClick={this.submitQuestions}>Save</button>
 			</div>	
+            </div>
 
 
-
-
-
-
-
-
-                		</div>
              		<div className="col2"></div>
                 </div>
+
+
+
+
+
+
+
+
            </div>
         	
 
