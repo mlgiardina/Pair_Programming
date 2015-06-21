@@ -22,11 +22,17 @@ var ProfilePage = React.createClass({
 		}, "json");
 	},
 	render: function(){
+		var weight = 0;
 		console.log("user is still logged in ",loggedInUser);
 		var questionare = this.props.questions.map(function(question){
 			var answer = answers[questions.indexOf(question)].map(function(answerForQuestion){
 				var index = questions.indexOf(question);
-				var questionWeight = index%3;
+				if(weight === 3){
+					weight = 0;
+				}
+				var questionWeight = weight;
+				console.log(questionWeight)
+				weight++;
 				return (<div key={answerForQuestion}>
 						<input data-id={questionWeight} className = "answers-for-match" value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
 						{answerForQuestion}</div>);
@@ -57,8 +63,9 @@ var ProfilePage = React.createClass({
 	submitQuestions: function(){
 		var ans = [];
 		for(var i = 0; i < answers.length; i++){
-			console.log($("input[name=question-"+i+"]:checked"));
-			ans.push($("input[name=question-"+i+"]:checked").val());
+			var weightID = $("input[name=question-"+i+"]:checked").attr("data-id");
+			var answerToSend = $("input[name=question-"+i+"]:checked").val();
+			ans.push(answerToSend+weightID);
 		}
 		
 		$.post("http://localhost:3000/answers/",{answer: 
