@@ -37,11 +37,11 @@ var ProfilePage = React.createClass({
 				var questionWeight = weight;
 				console.log(questionWeight)
 				weight++;
-				return (<div key={answerForQuestion}>
-						<input data-id={questionWeight} className = "answers-for-match" value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
+				return (<div className="input" key={answerForQuestion}>
+						<input  data-id={questionWeight}  value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
 						{answerForQuestion}</div>);
 			});
-			return (<div key={"answerQuestion-"+questions.indexOf(question)}>{question}{answer}</div>);
+			return (<div className="input-styles" key={"answerQuestion-"+questions.indexOf(question)}>{question}{answer}</div>);
 		});
 
 		var that = this;
@@ -79,20 +79,20 @@ var ProfilePage = React.createClass({
                 	<div  className="matches col2 ">
                 		<img src="http://fillmurray.com/150/150"/>
                 		<h3>Bill Murray</h3>
-                	 	<p>Austin TX</p>
+                	 	<h4>Austin TX</h4>
                     	<p>Coder</p>
                 	</div>
                 	<div className=" matches  col2 ">
                     	<img src="http://fillmurray.com/150/150"/>
                     	<h3>Bill Murray</h3>
-                    	<p>Austin TX</p>
+                    	<h4>Austin TX</h4>
                     	<p>Coder</p>
 
                 	</div>
                 	<div className=" matches col2 ">
                     	<img src="http://fillmurray.com/150/150"/>
                     	<h3>Bill Murray</h3>
-                    	 <p>Austin TX</p>
+                    	 <h4>Austin TX</h4>
                     	 <p>Coder</p>
                     </div>
                 </div>
@@ -127,12 +127,13 @@ var ProfilePage = React.createClass({
 				
 				<div>
 					
-					<div id="target-messagebox"></div>
+					<div className="input-styles" id="target-messagebox"></div>
 					<br/>
 				</div>
 				{questionare}
 				<button onClick={this.submitQuestions}>Save</button>
-			</div>	
+			</div>
+
             </div>
 
 

@@ -32,7 +32,7 @@ h2{
    font-size:1.7em;
 }
 
-h3{
+h3,h4{
   color:#999;
   text-align: center;
 
@@ -159,6 +159,7 @@ h3{
 .thirds{
    background-color:#19191B;
    width:100%;
+   padding-bottom:25px;
 
 
 img{
@@ -196,8 +197,8 @@ header{
 
       h1{
           float:left;
-          padding-top:16px;
-          padding-bottom:16px;
+           padding-top:20px;
+          padding-bottom:20px;
           color:white;
           }
          
@@ -206,6 +207,7 @@ header{
  button{
    margin-top:24px;
    margin-right:20px;
+
    }
 }
 
@@ -249,6 +251,7 @@ header{
 .matches-section{
 	width:100%;
 	 background:#19191B;
+	 border:1px solid #3D3D3D;
 	 margin-top:20px;
      }
 
@@ -277,7 +280,9 @@ header{
 
 .questions-section{
      margin-top:20px;
-     background:#1C1C1C;
+     background:#19191B;
+     border:1px solid #3D3D3D;
+     border-radius:5px;
      }
 
 
@@ -289,11 +294,19 @@ header{
 
 } 
 
+.input-styles{
+	color:white;
+	padding:10px;
+	border:1px solid white;
+}
 
 
 
+.input{
+	color:red;
+	padding:2px;
 
-
+}
 
 
 
