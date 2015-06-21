@@ -6,6 +6,10 @@ var answers = [["OS X", "Windows", "Linux"],["Agree","Neutral","Disagree"],
 ["Brackets!","Literal!","Objects?"],["Spaces","Tabs","I like to watch the world burn.. both"],
 ["Firefox","Chrome","IE8"],["StartUps are my jam!","Give me a suit and tie!","I like working from home!"]];
 
+$.get("http://localhost:3000/answers/", function(data){
+		var loggedIn = data;
+});
+
 var ProfilePage = React.createClass({
 	componentWillMount: function(){
 		$.get("http://localhost:3000/session/", function(data){
