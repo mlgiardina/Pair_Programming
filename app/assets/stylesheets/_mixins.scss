@@ -26,6 +26,8 @@ $gut:2%;
   .col2 {
   @include grid(2);
      min-height:200px;
+     background:blue;
+     clear:both;
     
      
   }
