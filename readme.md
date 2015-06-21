@@ -37,7 +37,7 @@ Pair Programming is a dating app for programmers! Our app compares users' answer
 - rails_12factor
 
 ##UMLs
-<img src="/Users/mlgiardina/Downloads/pair_programming.png">
+<img src="pair_programming.png">
 
 ##Credits
 The frontend of this app was created by <a href="https://github.com/awg24">Allen Garcia</a>, the design of this app was created by <a href="https://github.com/ChrisDJordan">Chris Jordan</a>, and the backend of this app was created by <a href="https://github.com/mlgiardina">Matthew Giardina</a>. 
