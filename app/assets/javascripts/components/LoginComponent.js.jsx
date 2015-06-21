@@ -5,6 +5,7 @@ var Login = React.createClass({
 		
 			<div>
 				<div className="header-color col12">
+
 					<form className="form-login">
 						<label>
 							Username:
@@ -21,6 +22,10 @@ var Login = React.createClass({
 				</div>
 
                 <div className="body-color col12">
+                    <div className="logo">
+                		<h1>Pair</h1> 
+                    	<h1>Pr<span></span>gramming</h1>
+                    </div>
                     <form className="form-signup">
                         <fieldset className="sign-up-info">
 
@@ -53,20 +58,24 @@ var Login = React.createClass({
 			    </div>
 		    
 
-             	<div>
+             	<div className="col12 body-color">
        				<div className="thirds col4">
-         				<img src="http://fillmurray.com/200/200"/>
-         			     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+         				<img src="http://fillmurray.com/385/180"/>
+         		         <h2>Bill Murray</h2>
+         		         <p>"I found my soul coder!"</p>
          			</div>
 
-       				<div className="thirds delete add off  col4">
-       			    	<img src="http://fillmurray.com/200/200"/>
-       			    	<p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+       				<div className="thirds delete add  col4">
+       			    	<img src="http://fillmurray.com/385/180"/>
+       			    	 <h2>Bill Murray</h2>
+         		         <p>"I found my soul coder!"</p>
+       			    	
        				</div>
   
        				<div className="thirds delete add col4">
-       			   		<img src="http://fillmurray.com/200/200"/>
-       			   		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+       			   		<img src="http://fillmurray.com/385/180"/>
+       			   		 <h2>Bill Murray</h2>
+         		         <p>"I found my soul coder!"</p>
                 	</div>
    				</div>
    		    </div>

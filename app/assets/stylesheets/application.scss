@@ -52,6 +52,15 @@ h3{
           float:right;
           padding-bottom:25px;
           margin-left:4%;
+          color:white;
+               button{
+                 float:right;
+                 margin-bottom:20px;
+                 margin-right:15px;
+
+
+
+               }
 
             input{
               width:20%;
@@ -63,6 +72,23 @@ h3{
 
 
 // body color---------------------------------------------------
+
+.logo{
+	h1{
+       font-size:3em;
+       color:#fff;
+
+       
+
+
+
+	}
+}
+
+
+
+
+
 .body-color{
  background-color:#252527;
  // height:510px;
@@ -89,6 +115,9 @@ h3{
      display: block;
      font-weight: bold;
      margin-bottom: 20px;
+            
+
+
      }
 
     input {
@@ -115,7 +144,7 @@ h3{
      cursor: pointer;
      font-weight: bold;
      padding: 8px 16px;
-     width:90%;
+     width:100%;
      display:block;
      margin:0 auto;
     }
@@ -133,6 +162,7 @@ img{
    // border-radius:5px;
   display:block;
   margin:30px auto;
+  width:80%;
   }
 
 }
@@ -151,14 +181,34 @@ img{
 
 
 // header----------------------------------------------------
-.header-color{
-      
+header{
+    background:#1C1C1C;
+    border:1px solid #3D3D3D;
+    float:left;
+    width:100%;
+
+
       h1{
           float:left;
           padding-top:16px;
           padding-bottom:16px;
+          color:white;
           }
-         }
+         
+
+
+}
+
+
+     button{
+          float:left;
+
+     }
+
+
+
+
+      
 
 
 
@@ -195,8 +245,6 @@ button{
 }
 
 .move{
-    
-   
     bottom:20px;
     display:block;
             float:left;

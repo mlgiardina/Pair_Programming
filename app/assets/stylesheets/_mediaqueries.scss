@@ -6,13 +6,13 @@
 
 // login page queries---------------------------------
 @media screen and (min-width: 550px) {
-  .add{
-  display:block;
-}
+//   .add{
+//   display:block;
+// }
   
-  .off{
-  display:none;
-  }
+  // .off{
+  // display:none;
+  // }
   
 .thirds{
  width:49%;
@@ -24,6 +24,9 @@
 
 .delete{
    display:none;
+
+
+   // profile page-------------------
 
 }
   .profile-img{
@@ -118,6 +121,7 @@
   }
 
 
+
   .profile-img{
   width:18%;
     img{
@@ -143,6 +147,11 @@
 
 .move{
 	display:none;
+}
+
+.text-fix{
+     text-align: left;
+
 }
 
 .delete-h2{

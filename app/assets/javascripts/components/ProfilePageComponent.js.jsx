@@ -23,68 +23,109 @@ var ProfilePage = React.createClass({
 		return (
 
 			// profile page html-------------------------------
-
-			<div className="header-color col12">
+            
+			<div className=" body-color col12">
+			<header>
 				<h1>Pair Programming</h1>
-                <button className="button-right" onClick={this.logOut}>Logout</button>
+				  <button className="button-right" onClick={this.logOut}>Logout</button>
                 <button onClick={this.showMessageComponent}>Send Message</button>
-			<div>
-				<button onClick={this.logOut}>Logout</button>
-				
-				hi {this.props.user}!
-				<a onClick={this.displayMessageBox} id="inbox-link" href="#">Message</a>
-				<div id="send-message">
-				</div>
-				<div>
-					<button onClick={this.showLoggedInUser}>Edit Profile</button>
-					
+			</header>
+          
+            
+			
+        
+           <div>
+                <div className="col2 add delete "></div>
+
+                <div className=" body-color profile-img col2">
+                	<img src="http://fillmurray.com/200/200"/>
+                	
+                	<h2 className="delete-h2">Bill Murray</h2>
+                	<p className="move">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                	    five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.
+                    </p>
+
+
+
+
+
+
+                	
+                	
+                </div>
+
+               
+
+            <div className="col6 matches-section add ">
+                <h2>Your Matches</h2>
+                <div  className="matches col2 ">
+                	<img src="http://fillmurray.com/150/150"/>
+                	<h3>Bill Murray</h3>
+                	 <p>Austin TX</p>
+                    <p>Coder</p>
+                </div>
+                <div className=" matches  col2 ">
+                    <img src="http://fillmurray.com/150/150"/>
+                    <h3>Bill Murray</h3>
+                    <p>Austin TX</p>
+                    <p>Coder</p>
+
+                </div>
+                <div className=" matches col2 ">
+                    <img src="http://fillmurray.com/150/150"/>
+                    <h3>Bill Murray</h3>
+                     <p>Austin TX</p>
+                     <p>Coder</p>
+                    
+
+                </div>
+            </div>
+                <div className="col2 add delete"></div>
             </div>
 
-			</div>	
+            <div className="bio">
+            <div className="col2"></div>
+                 <div className="col3">
+                 <h2 className="delete bringback">Bill Murray</h2>
+                 <p className="delete text-fix bringback">five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+                	    five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
 
-          
-			<div className="col12 color">
-            	<div className="col2 delete add"></div>
+                 
 
-                <div className="profile-img col3">
-                	<img src="http://fillmurray.com/400/400"/>
                 </div>
+                 <div className="col5">
+                 <h2>Questions</h2>
 
-                <div className=" border profile-bio col5">
+                 
+
+
+
+                 </div>
+             <div className="col2"></div>
+             
+            </div>
+
+
+
+
+             </div>
+
+
+                
+
+   
+
+
+                	
+
+
                     
-                	<h2>Bio</h2>
-               		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only </p>
-                </div>
-            
+
+                	
 
 
-                </div>
-
-                <div className="col12 color">
-                	<div className=" col2 add delete"></div>
-                    <div className=" border matches-likes col4">
-                      <h2>Matches</h2>
-          
-
-
-
-
-                    </div>
-
-                <div className=" border matches-likes col4">
-                	<h2>Likes</h2>
-                	<div id="target-messagebox"></div>
-                </div>
-
-                </div>
-
-				<div className=" col12 color">
-					<div className=" col2 add delete"></div>
-					<div className="border col8 questions-section">
-                   		<h2>Questions</h2>
-				   </div>
-				</div>
-			</div>
+					
+			
 			
 		);
 	},
