@@ -77,12 +77,11 @@ h3{
 	h1{
        font-size:3em;
        color:#fff;
+       }
 
-       
-
-
-
-	}
+    span{
+    	background-image: asset-url("heartbeat.png");
+    }
 }
 
 
@@ -186,6 +185,9 @@ header{
     border:1px solid #3D3D3D;
     float:left;
     width:100%;
+        button{
+        	float:right;
+        }
 
 
       h1{
@@ -218,8 +220,8 @@ button{
 
 
   .button-right{
-    float:right;
-    margin-right:58px;
+       float:right;
+       margin-right:58px;
     }
 
 // img and bio---------------------------------------------
@@ -232,74 +234,59 @@ button{
 .profile-img{
    width:100%;
    	 background:#19191B;
-  
-
-  
-  img{
-      background-size:cover;
-      border-radius:5px;
-      width:35%;
-      display:block;
-      float:left;
-  }
-}
+   	 margin-top:20px;
+           img{
+             background-size:cover;
+             border-radius:5px;
+             width:35%;
+             display:block;
+             float:left;
+             }
+            }
 
 .move{
     bottom:20px;
     display:block;
-            float:left;
-            width:60%;
-            max-height:100px;
-            text-align: left;
-             margin-left:10px;
-            
-   }
+    float:left;
+    width:60%;
+    max-height:200px;
+    text-align: left;
+    margin-left:10px;
+    }
 
 
 .matches-section{
 	width:100%;
 	 background:#19191B;
-
-}
+	 margin-top:20px;
+     }
 
 .matches{
-
     width:32%;
-    
-
-
-   
-    img{
+      img{
        display:block;
        margin:0 auto;
        border-radius:5px;
        width:80%;
-
-           }
-}
+       }
+      }
 
 
 .bio{
-	
-   .col3{
+	.col3{
      width:18%;
-
-
-   }
-
-  
-
-
-}
+     }
+    }
 
  .col5{
  	width:100%;
  	position:relative;
  	bottom:100px;
+    }
 
-   	
-   }
-
+.questions-section{
+     margin-top:20px;
+     }
 
 
 

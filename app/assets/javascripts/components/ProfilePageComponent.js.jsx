@@ -53,9 +53,9 @@ var ProfilePage = React.createClass({
 			<div className=" body-color col12">
 			<header>
 				<h1>Pair Programming</h1>
-				  <button className="button-right" onClick={this.logOut}>Logout</button>
-                <button onClick={this.showMessageComponent}>Send Message</button>
-                <button onClick={this.showLoggedInUser}>Edit Profile</button>
+				 <button className="button-right" onClick={this.logOut}>Logout</button>
+                
+                 <button onClick={this.showLoggedInUser}>Edit Profile</button>
 			</header>
           
             
@@ -69,7 +69,7 @@ var ProfilePage = React.createClass({
                 	
                 	<h2 className="delete-h2">Bill Murray</h2>
                 	<p className="move">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                	 five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
+                	 </p>
     	        </div>
 
                
@@ -109,8 +109,12 @@ var ProfilePage = React.createClass({
                  	<p className="delete text-fix bringback">five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
                 	    five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
                 </div>
-                 		<div className="col5">
+                 		<div className="questions-section col5">
                  			<h2>Questions</h2>
+
+                 			
+
+
 
 			<div>
 				<a onClick={this.displayMessageBox} id="inbox-link" href="#">Message</a>
