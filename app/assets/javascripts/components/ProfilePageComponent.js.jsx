@@ -26,8 +26,9 @@ var ProfilePage = React.createClass({
 		var questionare = this.props.questions.map(function(question){
 			var answer = answers[questions.indexOf(question)].map(function(answerForQuestion){
 				var index = questions.indexOf(question);
+				var questionWeight = index%3;
 				return (<div key={answerForQuestion}>
-						<input className = "answers-for-match" value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
+						<input data-id={questionWeight} className = "answers-for-match" value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
 						{answerForQuestion}</div>);
 			});
 			return (<div key={"answerQuestion-"+questions.indexOf(question)}>{question}{answer}</div>);
@@ -56,14 +57,14 @@ var ProfilePage = React.createClass({
 	submitQuestions: function(){
 		var ans = [];
 		for(var i = 0; i < answers.length; i++){
+			console.log($("input[name=question-"+i+"]:checked"));
 			ans.push($("input[name=question-"+i+"]:checked").val());
 		}
 		$.post("http://localhost:3000/answers/",{answer: 
 												{id: userToUpdate.id,
-												body:ans},function(){
-													console.log("answers posted!")
+												body:ans}},function(){
+													console.log("answers posted!");
 												} ,"json");
-		};
 	},
 	showLoggedInUser: function(){
 		React.render(<BioForm user={userToUpdate}/>, containerEl);
