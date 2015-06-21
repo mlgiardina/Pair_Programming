@@ -6,9 +6,9 @@ var questions = [
 	"3.) What is your preferred text editor color scheme?",
 	"4.) Do you prefer the front-end or back-end?",
 	"5.) Do you know Fortran?",
-	"6.) People who choose regular expressions to solve a problem inevitably end up with more problems. Agree or disagree?",
+	"6.) They say that when person uses Regular Expressions to solve a problem, they end up with two problems. Agree or disagree?",
 	"7.) Mouse, trackpad, or VIM?",
-	"8.) Bracket notation or literal notation?",
+	"8.) Bracket['notation'] or literal.notation?",
 	"9.) Spaces or tabs?",
 	"10.) Which is your preferred browser?",
 	"11.) Startup, enterprise, or freelance?"
