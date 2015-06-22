@@ -62,7 +62,7 @@ var ProfilePage = React.createClass({
 			<div className=" body-color profile-img col2">
 				<img src={this.props.photoToShow}/>
 
-				<h2 className="delete-h2 left-align">this.props.name</h2>
+				<h2 className="delete-h2 left-align">{this.props.name}</h2>
 				<p className="move">{this.props.bio}
 				</p>
 			</div>
@@ -76,7 +76,7 @@ var ProfilePage = React.createClass({
 		<div className="bio">
 			<div className="col2"></div>
 			<div className="col3">
-				<h2 className="delete bringback left-align">this.props.name</h2>
+				<h2 className="delete bringback left-align">{this.props.name}</h2>
 				<p className="delete text-fix bringback">{this.props.bio}</p>
 				<div className="col2 messages">
 					<button className="btn" onClick={this.showMessageComponent}>Send Message</button>
