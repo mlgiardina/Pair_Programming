@@ -23,6 +23,17 @@
 p{
  color:#999;
  text-align:center;
+ font-family: "lato",sans-serif;
+font-style: normal;
+font-weight: 300;
+    
+
+}
+
+h1{
+	   font-family: "lato",sans-serif;
+font-style: normal;
+font-weight: 300;
 
 }
 
@@ -30,11 +41,19 @@ h2{
     text-align:center;
    color:#62E0FF;
    font-size:1.7em;
+     font-family: "lato",sans-serif;
+font-style: normal;
+font-weight: 300;
+margin-top:20px;
+margin-bottom:5px;
 }
 
 h3,h4{
   color:#999;
   text-align: center;
+    font-family: "lato",sans-serif;
+font-style: normal;
+font-weight: 300;
 
 
 }
@@ -44,14 +63,23 @@ h3,h4{
 
   // header login starts here-----------------------------------
 
-.header-color{
+.header-style{
      background:#1C1C1C;
      border:1px solid #3D3D3D;
  
         .form-login {
           float:right;
-          padding-bottom:25px;
-          margin-left:4%;
+              label{
+              	  color: #999;
+                ;
+     font-weight: bold;
+    
+
+
+
+              }
+       
+          
           color:white;
                button{
                  float:right;
@@ -199,7 +227,8 @@ header{
           float:left;
            padding-top:20px;
           padding-bottom:20px;
-          color:white;
+          font-size: 2em;
+           color:white;
           }
          
 
@@ -207,6 +236,7 @@ header{
  button{
    margin-top:24px;
    margin-right:20px;
+
 
    }
 }
@@ -280,9 +310,9 @@ header{
 
 .questions-section{
      margin-top:20px;
-     background:#19191B;
+      background:#19191B;
      border:1px solid #3D3D3D;
-     border-radius:5px;
+      border-radius:5px;
      }
 
 
@@ -295,23 +325,44 @@ header{
 } 
 
 .input-styles{
-	color:white;
+	color:#999;
 	padding:10px;
-	border:1px solid white;
+	border:1px solid #3D3D3D;
 }
 
 
 
 .input{
-	color:red;
+	color:#999;
 	padding:2px;
 
 }
 
 
 
+.logo-pic{
+	background-image:asset-imagesurl("heartbeat.png");
+	height:50px;
+	width:50px;
+	color:red;
+}
 
+  .btn {
+     background: linear-gradient(#4d4d4d, #2f2f2f); 
+     border: 0;
+     color: #fff;
+     cursor: pointer;
+     font-weight: bold;
+     padding: 8px 16px;
+     display:block;
+    
+    }
 
+    // update page----------------------------------
+
+    .upload{
+    	margin-top:10px;
+    }
 
 
 

@@ -4,7 +4,7 @@ var SendMessage = React.createClass({
 			<div>
 				<form onSubmit={this.sendMessage}>
 					<input ref="messageBody" type="text"/>
-					<button type="submit">Send Message</button>
+					<button className="btn" type="submit">Send Message</button>
 				</form>
 			</div>
 		);

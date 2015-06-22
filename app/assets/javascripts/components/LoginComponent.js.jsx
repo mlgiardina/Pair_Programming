@@ -4,8 +4,8 @@ var Login = React.createClass({
 		return (
 		
 			<div>
-				<div className="header-color col12">
-
+				<header className="header-style">
+                  
 					<form className="form-login">
 						<label>
 							Username:
@@ -19,12 +19,13 @@ var Login = React.createClass({
 	   
 						<button className="btn" type="submit" name="submit" onClick={this.loginUser}>Sign In</button>
 					</form>
-				</div>
+
+				</header>
 
                 <div className="body-color col12">
                     <div className="logo">
                 		<h1>Pair</h1> 
-                    	<h1>Pr<span></span>gramming</h1>
+                    	<h1>Pr<span>💓</span>gramming</h1>
                     </div>
                     <form className="form-signup">
                         <fieldset className="sign-up-info">

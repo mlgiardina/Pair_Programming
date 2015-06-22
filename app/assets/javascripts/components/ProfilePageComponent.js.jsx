@@ -52,10 +52,10 @@ var ProfilePage = React.createClass({
             
 			<div className=" body-color col12">
 			<header>
-				<h1>Pair Programming</h1>
-				 <button className="button-right" onClick={this.logOut}>Logout</button>
+				<h1>Pair Pr💓gramming</h1>
+				 <button className="button-right btn" onClick={this.logOut}>Logout</button>
                 
-                 <button onClick={this.showLoggedInUser}>Edit Profile</button>
+                 <button className="btn" onClick={this.showLoggedInUser}>Edit Profile</button>
 			</header>
           
             
@@ -108,9 +108,10 @@ var ProfilePage = React.createClass({
                  	<h2 className="delete bringback left-align">Bill Murray</h2>
                  	<p className="delete text-fix bringback">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release</p>
                 	    <div className="col2 messages">
-                	    <button onClick={this.showMessageComponent}>Send Message</button>
+                	    <button className="btn" onClick={this.showMessageComponent}>Send Message</button>
                 	    <div id="send-message"></div>
                 	    </div>
+                	    <div id="target-messagebox"></div>
                 </div>
 
 
@@ -123,15 +124,13 @@ var ProfilePage = React.createClass({
 
 
 			<div>
-				<a onClick={this.displayMessageBox} id="inbox-link" href="#">Message</a>
+				
 				
 				<div>
 					
-					<div className="input-styles" id="target-messagebox"></div>
-					<br/>
 				</div>
 				{questionare}
-				<button onClick={this.submitQuestions}>Save</button>
+				<button className="btn"onClick={this.submitQuestions}>Save</button>
 			</div>
 
             </div>
