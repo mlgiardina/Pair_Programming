@@ -6,8 +6,8 @@ class MatchesController < ApplicationController
   end
 
   def create
-    params.each do |key, value|
-      new_match = Match.new(key)
+    params[:matchscores].each do |obj|
+      new_match = Match.new(obj)
       if new_match.save
         render json: new_match
       else

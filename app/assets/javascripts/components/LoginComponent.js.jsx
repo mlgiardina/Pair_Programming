@@ -18,7 +18,9 @@ var Login = React.createClass({
 						</label>
 	   
 						<button className="btn" type="submit" name="submit" onClick={this.loginUser}>Sign In</button>
+						<div id="error-element"></div>
 					</form>
+
 				</div>
 
                 <div className="body-color col12">
@@ -48,7 +50,7 @@ var Login = React.createClass({
 						        Confirm Password
 						        <input ref="newUserConfirmPassword" type="password" name="password"/>
 					        </label>
-
+					        <div id="error-signup"></div>
 					    </fieldset>
                          
                         <fieldset className="signup-bottom">
@@ -109,11 +111,13 @@ var Login = React.createClass({
 			 		console.log("error status: ",data.message);
 			 		if(data.message !== "error2"){
 			 			newRoute.navigate("profile/"+user.get("username"),{trigger: true});
+			 		} else {
+
 			 		}
 			 	}, "json");
 		 	}
 		 } else {
-		 	console.log(user.validationError);
+		 	React.render(<div>{user.validationError}</div>, document.getElementById("error-signup"));
 		 }
 		 
 	}, 
@@ -137,7 +141,28 @@ var Login = React.createClass({
 			},"json");
 			
 		} else {
-			console.log(currentUser.validationError);
+			React.render(<div>{currentUser.validationError}</div>, document.getElementById("error-element"));
 		}
 	}
 });
+$(function() {
+    $.ajaxSetup({
+        error: function(jqXHR, exception) {
+            if (jqXHR.status === 0) {
+                alert('Not connect.\n Verify Network.');
+            } else if (jqXHR.status == 404) {
+                $("#error-element").html('*User does not exist or password does not match');
+            } else if (jqXHR.status == 500) {
+                alert('Internal Server Error [500].');
+            } else if (jqXHR.status === "error2") {
+                $("#error-element").html('*Username already exists');
+            } else if (exception === 'timeout') {
+                alert('Time out error.');
+            } else if (exception === 'abort') {
+                alert('Ajax request aborted.');
+            } else {
+                alert('Uncaught Error.\n' + jqXHR.responseText);
+            }
+        }
+    });
+}());

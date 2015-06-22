@@ -171,6 +171,7 @@ function startMatching(loggedInUser, everyoneElse){
 	console.log("logged in Users data",loggedInUser);
 	console.log("everyone elses data",everyoneElse);
 	console.log("logged in user",loggedInUser.body);
+	console.log(loggedInUser)
 	//console.log("everyone else:", everyoneElse[0].body.split("~"));
 	if(everyoneElse.length !== 0){
 		for(var i = 0; i < everyoneElse.length; i++){
@@ -180,16 +181,16 @@ function startMatching(loggedInUser, everyoneElse){
 				score += Math.abs(parseInt(loggedInUser.body[j].slice(-1)) - parseInt(newArray[j].slice(-1)));
 			}
 			console.log(score);
-			scores.push({match: {user_id: loggedInUser.id, body: [everyoneElse[i].user_id, Math.round((1-(score/22))*100)]}});
+			scores.push({match: {user_id: loggedInUser.user_id, body: everyoneElse[i].user_id+"~"+Math.round((1-(score/22))*100)}});
 			score = 0;
 		}
-
-		$.post("http://localhost:3000/match/", scores, function(){
+		console.log(scores);
+		$.post("http://localhost:3000/match/", {matchscores: scores}, function(){
 			console.log("i work, bitches!");
 		});
 	}
 
-	console.log(scores);
+	
 
 }
 
