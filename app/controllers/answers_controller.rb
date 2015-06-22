@@ -11,7 +11,7 @@ class AnswersController < ApplicationController
 
   def show
     authenticate_user!
-    answer = Answer.where(user_id: session[:user_id]).first
+    answer = Answer.where(user_id: session[:user_id]).last
     answer.body = answer.body.split("~")
     render json: answer
   end

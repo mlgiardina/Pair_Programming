@@ -26,7 +26,7 @@ class MessagesController < ApplicationController
     authenticate_user!
     message = Message.new(message_params)
     if message.save
-      render json: { message: "Message sent!" }
+      render json: message
     else
       render json: { message: "Error" }, status: 403
     end

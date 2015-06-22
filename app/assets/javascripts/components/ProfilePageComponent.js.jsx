@@ -1,5 +1,6 @@
 var clicks = 0;
 var loggedInUser;
+var photoToShow;
 var answers = [["OS X", "Windows", "Linux"],["Agree","Neutral","Disagree"],
 ["Dark","Neutral","Light"],["Workin' in the Front","Both","Workin' in the Back"],
 ["Yes","No","Eh?"],["Agree","Neutral","Disagree"],["Mouse","Trackpad","VIM"],
@@ -9,7 +10,7 @@ var answers = [["OS X", "Windows", "Linux"],["Agree","Neutral","Disagree"],
 var ProfilePage = React.createClass({
 	componentWillMount: function(){
 		$.get("http://localhost:3000/session/", function(data){
-			console.log("coming from inital: ",data);
+			console.log("coming from will mount: ",data);
 			  loggedInUser = data.username;
 			  userToUpdate = {
 							id: data.id,
@@ -18,7 +19,6 @@ var ProfilePage = React.createClass({
 							email: data.email,
 							bio: data.bio,
 							picture: data.picture};
-			
 		}, "json");
 	},
 	render: function(){
@@ -41,6 +41,7 @@ var ProfilePage = React.createClass({
 		});
 
 		var that = this;
+
 		return (
 			<div className=" body-color col12">
 				<header>
@@ -51,10 +52,9 @@ var ProfilePage = React.createClass({
 				</header>
 			   <div>
 				   <div className="col2 add delete "></div>
-
+				   
 				   <div className=" body-color profile-img col2">
-						<img src="http://fillmurray.com/200/200"/>
-						
+						<img ref="imageToShow" src={this.props.photoToShow}/>
 						<h2 className="delete-h2">Bill Murray</h2>
 						<p className="move">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
 						 five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
@@ -110,6 +110,9 @@ var ProfilePage = React.createClass({
 		   </div>
 		);
 	},
+	retrievePhoto: function(){
+		console.log("I ran")
+	},
 	submitQuestions: function(){
 		var ans = [];
 		for(var i = 0; i < answers.length; i++){
@@ -163,8 +166,33 @@ var ProfilePage = React.createClass({
 	}
 });
 function startMatching(loggedInUser, everyoneElse){
+	var score = 0;
+	var scores = [];
 	console.log("logged in Users data",loggedInUser);
 	console.log("everyone elses data",everyoneElse);
+	console.log("logged in user",loggedInUser.body);
+	//console.log("everyone else:", everyoneElse[0].body.split("~"));
+	if(everyoneElse.length !== 0){
+		for(var i = 0; i < everyoneElse.length; i++){
+			var newArray = everyoneElse[i].body.split("~").slice(0);
+			console.log(newArray);
+			for(var j = 0; j < loggedInUser.body.length; j++){
+				score += Math.abs(parseInt(loggedInUser.body[j].slice(-1)) - parseInt(newArray[j].slice(-1)));
+			}
+			console.log(score);
+			$.post("http://localhost:3000/match/",{match: 
+													{user_id: loggedInUser.id, 
+													body: [everyoneElse[i].username, Math.round((1-(score/22))*100]}},
+														function(){
+															console.log("i work!");
+														});
+			score = 0;
+		}
+	}
+//	{match: {user: loggedInUser.id, body: scores}}
+
+	console.log(scores);
+
 }
 
 
