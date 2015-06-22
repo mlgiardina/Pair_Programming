@@ -62,9 +62,7 @@ var ProfilePage = React.createClass({
 				<img src={this.props.photoToShow}/>
 				
 				<h2 className="delete-h2 left-align">Bill Murray</h2>
-				<p className="move">bio ake a type specimen book. It has survived not only five centuries,
-				 but also the leap into electronic typesetting, remaining essentially unchanged. 
-				 It was popularised in the 1960s with the release
+				<p className="move">{this.props.bio}
 				</p>
 			</div>
 			
