@@ -6,36 +6,36 @@
 
 // login page queries---------------------------------
 @media screen and (min-width: 550px) {
-  .add{
+
+
+.add{
   display:block;
-}
+  }
   
-  .off{
+.off{
   display:none;
   }
   
 .thirds{
- width:49%;
+  width:49%;
  }
   
-  .form-signup{
-    width:40%;
-  }
+.form-signup{
+  width:40%;
+ }
 
 .delete{
-   display:none;
-}
+  display:none;
+  }
 
 
    // profile page-------------------
 
 
-  .profile-img{
+.profile-img{
    width:100%;
   
-
-  
-  img{
+    img{
       background-size:cover;
       width:30%;
       margin:0 auto;
@@ -49,45 +49,23 @@
     max-height:500px;
     }
 
-  header{
+header{
 
-  h1{
-          float:left;
-          padding-top:20px;
-          padding-bottom:20px;
-          font-size: 3em;
-          color:white;
-          }
+    h1{
+       float:left;
+       padding-top:20px;
+       padding-bottom:20px;
+       font-size: 3em;
+       color:white;
+       }
          
 
 
- button{
-   margin-top:24px;
-   margin-right:20px;
-
-
-   }
+button{
+  margin-top:24px;
+  margin-right:20px;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ }
 
 }/*end of 600 querie  */
 
@@ -95,74 +73,73 @@
 @media screen and (min-width: 900px) {
 
 .body-color{
-	padding-bottom:45px;
+   padding-bottom:45px;
+   }
 
-}
-  .add{
-    display:inline-block
-    }
+.add{
+   display:inline-block
+   }
   
-  .thirds{
-    width:32%;
-    }
+.thirds{
+   width:32%;
+   }
   
-   .form-signup{
-    width:25%;
-  }
+.form-signup{
+   width:25%;
+   }
 
 header{
-	h1{
-		margin-left:50px;
-	}
-}
 
-  .profile-img{
-  width:18%;
-    img{
-     background-size:cover;
-      width:100%;
-       margin:0 auto;
+	h1{
+      margin-left:50px;
+	  }
+     }
+
+.profile-img{
+   width:18%;
+
+      img{
+        background-size:cover;
+        width:100%;
+        margin:0 auto;
        }
-}
+      }
 
 
 .matches-section{
 	width:46%;
 	border-radius:5px;
-   }
+    }
 
 
 .move{
 	display:none;
-}
+    }
 
 .text-fix{
      text-align: left;
-
-}
+     }
 
 .delete-h2{
 	display:none;
-}
+    }
 
 
 .bio{
-display:block;
-clear:left;
+   display:block;
+   clear:left;
 
 
 
 .col5{
    	width:46%;
    	top:15px;
-
+    }
    }
-
-}
 
 .bringback{
 	display:block;
-}
+    }
 
 
 
@@ -170,8 +147,7 @@ clear:left;
     margin-top:10px;
 	width:100%;
 	display:block;
-
-} 
+    } 
 
 
 
