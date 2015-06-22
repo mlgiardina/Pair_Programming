@@ -35,7 +35,7 @@ class MatchesController < ApplicationController
     end
     render json: sorted_matches.sort_by { |match| match.values[0] }.reverse
   end
-
+  
   private
 
   def match_params

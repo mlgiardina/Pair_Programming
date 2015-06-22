@@ -1,5 +1,6 @@
 var clicks = 0;
 var loggedInUser;
+var photoToShow;
 var answers = [["OS X", "Windows", "Linux"],["Agree","Neutral","Disagree"],
 ["Dark","Neutral","Light"],["Workin' in the Front","Both","Workin' in the Back"],
 ["Yes","No","Eh?"],["Agree","Neutral","Disagree"],["Mouse","Trackpad","VIM"],
@@ -10,31 +11,32 @@ var loggedIn = data;
 });
 var ProfilePage = React.createClass({
 	componentWillMount: function(){
-	$.get("http://localhost:3000/session/", function(data){
-	console.log("coming from inital: ",data);
-	loggedInUser = data.username;
-	userToUpdate = {
-	id: data.id,
-	username: data.username,
-	name: data.name,
-	email: data.email,
-	bio: data.bio,
-	picture: data.picture};
-
-	}, "json");
-},
-render: function(){
-	var weight = 0;
-	console.log("user is still logged in ",loggedInUser);
-	var questionare = this.props.questions.map(function(question){
-	var answer = answers[questions.indexOf(question)].map(function(answerForQuestion){
-	var index = questions.indexOf(question);
-	if(weight === 3){
-	weight = 0;
-	}
-	var questionWeight = weight;
-	console.log(questionWeight)
-	weight++;
+		$.get("http://localhost:3000/session/", function(data){
+			  loggedInUser = data.username;
+			  userToUpdate = {
+							id: data.id,
+							username: data.username,
+							name: data.name,
+							email: data.email,
+							bio: data.bio,
+							picture: data.picture};
+		}, "json");
+	},
+	getInitialState: function(){
+		return {
+			bio: this.props.bio
+		};
+	},
+	render: function(){
+		var weight = 0;
+		var questionare = this.props.questions.map(function(question){
+			var answer = answers[questions.indexOf(question)].map(function(answerForQuestion){
+				var index = questions.indexOf(question);
+				if(weight === 3){
+					weight = 0;
+				}
+				var questionWeight = weight;
+				weight++;
 	return (<div className="input" key={answerForQuestion}>
 		<input  data-id={questionWeight}  value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
 	{answerForQuestion}</div>);
@@ -141,6 +143,7 @@ submitQuestions: function(){
 },
 showLoggedInUser: function(){
 	React.render(<BioForm user={userToUpdate}/>, containerEl);
+
 	},
 	logOut: function(){
 	$.get("http://localhost:3000/logout/",function(data){
@@ -169,6 +172,34 @@ displayMessageBox: function(event){
 	}
 });
 function startMatching(loggedInUser, everyoneElse){
+	var score = 0;
+	var scores = [];
 	console.log("logged in Users data",loggedInUser);
 	console.log("everyone elses data",everyoneElse);
+	console.log("logged in user",loggedInUser.body);
+	console.log(loggedInUser)
+	//console.log("everyone else:", everyoneElse[0].body.split("~"));
+	if(everyoneElse.length !== 0){
+		for(var i = 0; i < everyoneElse.length; i++){
+			var newArray = everyoneElse[i].body.split("~").slice(0);
+			console.log(newArray);
+			for(var j = 0; j < loggedInUser.body.length; j++){
+				score += Math.abs(parseInt(loggedInUser.body[j].slice(-1)) - parseInt(newArray[j].slice(-1)));
+			}
+			console.log(score);
+			scores.push({match: {user_id: loggedInUser.user_id, body: everyoneElse[i].user_id+"~"+Math.round((1-(score/22))*100)}});
+			score = 0;
+		}
+		
+		scores.map(function(element){
+			$.post("http://localhost:3000/match/", element, function(){
+				console.log("i work, bitches!");
+			});
+			
+		});
+		
+	}
+
+	
+
 }
