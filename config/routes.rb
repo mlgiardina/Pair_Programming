@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  post 'match', to: 'matches#create'
+  get 'match', to: 'matches#index'
+  get 'match/top', to: 'matches#show'
   get 'messages/inbox', to: 'messages#index'
   get 'users/single', to: 'users#show'
   get 'session', to: 'sessions#show'

@@ -1,6 +1,7 @@
 class AnswersController < ApplicationController
 
   def index
+    authenticate_user!
     answers = []
     users = User.where.not(id: session[:user_id])
     users.each do |user|
@@ -11,7 +12,7 @@ class AnswersController < ApplicationController
 
   def show
     authenticate_user!
-    answer = Answer.where(user_id: session[:user_id]).first
+    answer = Answer.where(user_id: session[:user_id]).last
     answer.body = answer.body.split("~")
     render json: answer
   end
