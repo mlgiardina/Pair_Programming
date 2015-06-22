@@ -1,17 +1,36 @@
 var Match = React.createClass({
 	render: function(){
 		return (
-			<div>Im a match!
+			<div>
 			{this.matchAlgorithm()}
 			</div>
 		);
 	},
 	matchAlgorithm: function(){
-		var user = this.props.user;
-		$.get("http://localhost:3000/users/single",{username: user},function(data){
+		var matchData;
+		$.get("http://localhost:3000/match/top/",function(data){
 				console.log(data);
+				matchData = data;
 		},"json");
 
-		// {answer: {username:"person", answers:array}}
+		// <div  className="matches col2 ">
+		// 	<img src="http://fillmurray.com/150/150"/>
+		// 	<h3>Bill Murray</h3>
+		// 	<p>Austin TX</p>
+		// 	<p>Coder</p>
+		// </div>
+		// <div className=" matches  col2 ">
+		// 	<img src="http://fillmurray.com/150/150"/>
+		// 	<h3>Bill Murray</h3>
+		// 	<p>Austin TX</p>
+		// 	<p>Coder</p>
+
+		// </div>
+		// <div className=" matches col2 ">
+		// 	<img src="http://fillmurray.com/150/150"/>
+		// 	<h3>Bill Murray</h3>
+		// 	 <p>Austin TX</p>
+		// 	 <p>Coder</p>
+		// </div>
 	}
 });

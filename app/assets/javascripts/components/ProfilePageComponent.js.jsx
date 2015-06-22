@@ -10,7 +10,6 @@ var answers = [["OS X", "Windows", "Linux"],["Agree","Neutral","Disagree"],
 var ProfilePage = React.createClass({
 	componentWillMount: function(){
 		$.get("http://localhost:3000/session/", function(data){
-			console.log("coming from will mount: ",data);
 			  loggedInUser = data.username;
 			  userToUpdate = {
 							id: data.id,
@@ -21,9 +20,13 @@ var ProfilePage = React.createClass({
 							picture: data.picture};
 		}, "json");
 	},
+	getInitialState: function(){
+		return {
+			bio: this.props.bio
+		};
+	},
 	render: function(){
 		var weight = 0;
-		console.log("user is still logged in ",loggedInUser);
 		var questionare = this.props.questions.map(function(question){
 			var answer = answers[questions.indexOf(question)].map(function(answerForQuestion){
 				var index = questions.indexOf(question);
@@ -31,7 +34,6 @@ var ProfilePage = React.createClass({
 					weight = 0;
 				}
 				var questionWeight = weight;
-				console.log(questionWeight)
 				weight++;
 				return (<div key={answerForQuestion}>
 						<input data-id={questionWeight} className = "answers-for-match" value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
@@ -41,7 +43,7 @@ var ProfilePage = React.createClass({
 		});
 
 		var that = this;
-
+		console.log(this.props.bio);
 		return (
 			<div className=" body-color col12">
 				<header>
@@ -61,25 +63,7 @@ var ProfilePage = React.createClass({
 				</div>
 					<div className="col6 matches-section add ">
 						<h2>Your Matches</h2>
-						<div  className="matches col2 ">
-							<img src="http://fillmurray.com/150/150"/>
-							<h3>Bill Murray</h3>
-							<p>Austin TX</p>
-							<p>Coder</p>
-						</div>
-						<div className=" matches  col2 ">
-							<img src="http://fillmurray.com/150/150"/>
-							<h3>Bill Murray</h3>
-							<p>Austin TX</p>
-							<p>Coder</p>
-
-						</div>
-						<div className=" matches col2 ">
-							<img src="http://fillmurray.com/150/150"/>
-							<h3>Bill Murray</h3>
-							 <p>Austin TX</p>
-							 <p>Coder</p>
-						</div>
+						<Match />
 					</div>
 					<div className="col2 add delete"></div>
 					</div>
@@ -87,8 +71,7 @@ var ProfilePage = React.createClass({
 					<div className="col2"></div>
 					<div className="col3">
 						<h2 className="delete bringback">Bill Murray</h2>
-						<p className="delete text-fix bringback">five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-							five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release.</p>
+						<p className="delete text-fix bringback">{this.props.bio}</p>
 					</div>
 							<div className="col5">
 								<h2>Questions</h2>

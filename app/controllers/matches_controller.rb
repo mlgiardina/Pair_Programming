@@ -6,17 +6,6 @@ class MatchesController < ApplicationController
   end
 
   def create
-    # params[:matchscores].each do |key, value|
-    #   # key.each do |k, v|
-    #     new_match = Match.new(value)
-    #     if new_match.save
-    #       render json: new_match
-    #     else
-    #       render json: { message: "error" }, status: 403
-    #     end
-    #   # end
-    # end
-    # serialized_match_body = params[:match][:body].join("~")
     match = Match.new(match_params)
     if match.save
       render json: match
@@ -39,6 +28,7 @@ class MatchesController < ApplicationController
     matches = User.find(session[:user_id]).matches
     matches.each do |match|
       unserialized_match_body = match.body.split("~")
+      unserialized_match_body[0] = User.find(unserialized_match_body[0]).username
       sorted_matches.push(unserialized_match_body)
     end
     render json: sorted_matches.sort_by { |match| match[1] }.reverse

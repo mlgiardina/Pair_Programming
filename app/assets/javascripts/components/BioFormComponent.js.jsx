@@ -26,7 +26,7 @@ var BioForm = React.createClass({
 				}},
 			success: function(){
 				console.log("image uploaded")
-				React.render(<ProfilePage routing={myRouter} questions={questions} photoToShow={photoToShow} profileName={userToUpdate.name} />, containerEl);
+				React.render(<ProfilePage routing={myRouter} questions={questions} photoToShow={photoToShow} profileName={userToUpdate.name} bio={userToUpdate.bio} />, containerEl);
 			}
 		});
 	}

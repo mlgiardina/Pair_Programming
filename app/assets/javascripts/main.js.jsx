@@ -27,7 +27,6 @@ var App = Backbone.Router.extend({
 	},
 	profile: function(user){
 		$.get("http://localhost:3000/session/", function(data){
-			console.log("coming from will mount: ",data);
 			  loggedInUser = data.username;
 			  userToUpdate = {
 							id: data.id,
@@ -38,7 +37,7 @@ var App = Backbone.Router.extend({
 							picture: data.picture};
 
 			photoToShow = userToUpdate.picture;
-			React.render(<ProfilePage routing={myRouter} questions={questions} photoToShow={photoToShow} profileName={user} />, containerEl);
+			React.render(<ProfilePage routing={myRouter} questions={questions} photoToShow={photoToShow} profileName={user} bio={userToUpdate.bio} />, containerEl);
 		}, "json");
 		
 	},
