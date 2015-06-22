@@ -15,6 +15,6 @@ var UserModel = Backbone.Model.extend({
 			return false;
 		} 
 	},
-	urlRoot: "http://localhost:3000/users/",
+	urlRoot: "/users/",
 	idAttribute: "id"
 });

@@ -60,7 +60,7 @@ saveProfileInfo: function(){
 		var photoToShow = this.refs.userImageUpload.getDOMNode().value
 		$.ajax({
 			type:"PUT",
-			url:"http://localhost:3000/users",
+			url:"/users",
 			data:{user:
 					{
 					username: userToUpdate.username,
