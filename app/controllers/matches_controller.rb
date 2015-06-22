@@ -6,13 +6,21 @@ class MatchesController < ApplicationController
   end
 
   def create
-    serialized_match_body = params[:match][:body].join("~")
-    match = Match.new(user_id: params[:match][:user_id], body: serialized_match_body)
-    if match.save
-      render json: match
-    else
-      render json: { message: "error" }, status: 403
+    params.each do |match|
+      new_match = Match.new(match)
+      if new_match.save
+        render json: new_match
+      else
+        render json: { message: "error" }, status: 403
+      end
     end
+    # serialized_match_body = params[:match][:body].join("~")
+    # match = Match.new(user_id: params[:match][:user_id], body: serialized_match_body)
+    # if match.save
+    #   render json: match
+    # else
+    #   render json: { message: "error" }, status: 403
+    # end
   end
 
   def update
