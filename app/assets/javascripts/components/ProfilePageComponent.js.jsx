@@ -184,10 +184,14 @@ function startMatching(loggedInUser, everyoneElse){
 			scores.push({match: {user_id: loggedInUser.user_id, body: everyoneElse[i].user_id+"~"+Math.round((1-(score/22))*100)}});
 			score = 0;
 		}
-		console.log(scores);
-		$.post("http://localhost:3000/match/", {matchscores: scores}, function(){
-			console.log("i work, bitches!");
+		
+		scores.map(function(element){
+			$.post("http://localhost:3000/match/", element, function(){
+				console.log("i work, bitches!");
+			});
+			
 		});
+		
 	}
 
 	
