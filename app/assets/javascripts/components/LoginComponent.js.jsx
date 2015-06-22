@@ -90,7 +90,7 @@ saveNewUser: function(event){
 		} else {
 		console.log("I work");
 
-		$.post("http://localhost:3000/users/",{user: user.attributes}, function(data){
+		$.post("/users/",{user: user.attributes}, function(data){
 			userCollection.add(user);
 			console.log("error status: ",data.message);
 			if(data.message !== "error2"){
@@ -117,7 +117,7 @@ saveNewUser: function(event){
 		if(currentUser.isValid()){
 			var routes = this.props.routing;
 			console.log("user id:", currentUser.get("username"), "user password:", currentUser.get("password"));
-			$.post("http://localhost:3000/login/",{username: currentUser.get("username"), 
+			$.post("/login/",{username: currentUser.get("username"), 
 				password: currentUser.get("password")},function(data){
 				routes.navigate("profile/"+currentUser.get("username"),{trigger: true});
 			},"json");
@@ -142,8 +142,6 @@ $(function() {
                 alert('Time out error.');
             } else if (exception === 'abort') {
                 alert('Ajax request aborted.');
-            } else {
-                alert('Uncaught Error.\n' + jqXHR.responseText);
             }
         }
     });

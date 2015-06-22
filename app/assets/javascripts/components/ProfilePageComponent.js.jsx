@@ -68,24 +68,7 @@ var ProfilePage = React.createClass({
 			
 			<div className="col6 matches-section add ">
 				<h2>Your Matches</h2>
-				<div  className="matches col2 ">
-					<img src="http://fillmurray.com/150/150"/>
-					<h3>Bill Murray</h3>
-					<h4>Austin TX</h4>
-					<p>Coder</p>
-				</div>
-				<div className=" matches  col2 ">
-					<img src="http://fillmurray.com/150/150"/>
-					<h3>Bill Murray</h3>
-					<h4>Austin TX</h4>
-					<p>Coder</p>
-				</div>
-				<div className=" matches col2 ">
-					<img src="http://fillmurray.com/150/150"/>
-					<h3>Bill Murray</h3>
-					<h4>Austin TX</h4>
-					<p>Coder</p>
-				</div>
+				<Match />
 			</div>
 			<div className="col2 add delete"></div>
 		</div>
@@ -96,6 +79,7 @@ var ProfilePage = React.createClass({
 				<p className="delete text-fix bringback">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release</p>
 				<div className="col2 messages">
 					<button className="btn" onClick={this.showMessageComponent}>Send Message</button>
+					<a onClick={this.displayMessageBox} href="#">Message</a>
 					<div id="send-message"></div>
 				</div>
 				<div id="target-messagebox"></div>
@@ -124,15 +108,15 @@ submitQuestions: function(){
 	ans.push(answerToSend+weightID);
 	}
 
-	$.post("http://localhost:3000/answers/",{answer:
+	$.post("/answers/",{answer:
 	{
 	user_id: userToUpdate.id,
 	body: ans
 	}
 	},function(){
-	$.get("http://localhost:3000/answers/", function(data){
+	$.get("/answers/", function(data){
 	var loggedIn = data;
-	$.get("http://localhost:3000/answers/all",function(users){
+	$.get("/answers/all",function(users){
 	startMatching(loggedIn, users);
 	});
 
@@ -144,7 +128,7 @@ showLoggedInUser: function(){
 
 	},
 	logOut: function(){
-	$.get("http://localhost:3000/logout/",function(data){
+	$.get("/logout/",function(data){
 	console.log(data);
 	});
 	this.props.routing.navigate("login", {trigger: true});
@@ -158,7 +142,7 @@ displayMessageBox: function(event){
 	if(clicks%2===0){
 	var user = this.props.user;
 	console.log(loggedInUser);
-	$.get("http://localhost:3000/messages/inbox",{username: loggedInUser},function(data){
+	$.get("/messages/inbox",{username: loggedInUser},function(data){
 	console.log("all message: ",data);
 
 	React.render(<MessageBox user={loggedInUser} receivedMessages={data} />, document.getElementById("target-messagebox"));
@@ -190,7 +174,7 @@ function startMatching(loggedInUser, everyoneElse){
 		}
 		
 		scores.map(function(element){
-			$.post("http://localhost:3000/match/", element, function(){
+			$.post("/match/", element, function(){
 				console.log("i work, bitches!");
 			});
 			

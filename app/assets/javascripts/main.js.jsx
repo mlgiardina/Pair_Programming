@@ -26,7 +26,7 @@ var App = Backbone.Router.extend({
 		React.render(<Login routing={myRouter}/>, containerEl);
 	},
 	profile: function(user){
-		$.get("http://localhost:3000/session/", function(data){
+		$.get("/session/", function(data){
 			  loggedInUser = data.username;
 			  userToUpdate = {
 							id: data.id,
