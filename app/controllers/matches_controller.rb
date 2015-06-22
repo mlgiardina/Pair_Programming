@@ -6,8 +6,8 @@ class MatchesController < ApplicationController
   end
 
   def create
-    params.each do |match|
-      new_match = Match.new(match)
+    params.each do |key, value|
+      new_match = Match.new(key)
       if new_match.save
         render json: new_match
       else
@@ -28,7 +28,7 @@ class MatchesController < ApplicationController
     if matches.update(match_params)
       render json: matches
     else
-      render json: { message: "error" }, status 403
+      render json: { message: "error" }, status: 403
     end
   end
 
@@ -40,6 +40,7 @@ class MatchesController < ApplicationController
       sorted_matches.push(unserialized_match_body)
     end
     render json: sorted_matches.sort_by { |match| match[1] }.reverse
+  end
 
   private
 
