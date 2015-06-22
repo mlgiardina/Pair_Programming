@@ -18,6 +18,7 @@ return (
 			</label>
 			
 			<button className="btn" type="submit" name="submit" onClick={this.loginUser}>Sign In</button>
+			<div id="error-element"></div>
 		</form>
 	</header>
 	<div className="body-color col12">
@@ -43,6 +44,7 @@ return (
 					Confirm Password
 					<input ref="newUserConfirmPassword" type="password" name="password"/>
 				</label>
+				<div id="error-signup"></div>
 			</fieldset>
 			
 			<fieldset className="signup-bottom">
@@ -52,23 +54,18 @@ return (
 	</div>
 	
 	<div className="col12 body-color">
-		<div className="thirds col4">
-			<img src="http://fillmurray.com/385/180"/>
-			<h2>Bill Murray</h2>
-			<p>"I found my soul coder!"</p>
+	<div className=" body-color col4">
+			
 		</div>
-		<div className="thirds delete yep  col4">
-			<img src="http://fillmurray.com/385/180"/>
-			<h2>Bill Murray</h2>
-			<p>"I found my soul coder!"</p>
+		<div className="  body-color col4">
+			
 			
 		</div>
 		
-		<div className="thirds delete  col4">
-			<img src="http://fillmurray.com/385/180"/>
-			<h2>Bill Murray</h2>
-			<p>"I found my soul coder!"</p>
+		<div className=" body-color col4">
+			
 		</div>
+		
 	</div>
 </div>
 );
@@ -102,7 +99,7 @@ saveNewUser: function(event){
 		}, "json");
 		}
 	} else {
-		console.log(user.validationError);
+		React.render(<div>{user.validationError}</div>, document.getElementById("error-signup"));
 	}
 
 }, 

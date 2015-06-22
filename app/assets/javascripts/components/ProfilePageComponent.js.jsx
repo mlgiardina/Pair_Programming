@@ -6,9 +6,7 @@ var answers = [["OS X", "Windows", "Linux"],["Agree","Neutral","Disagree"],
 ["Yes","No","Eh?"],["Agree","Neutral","Disagree"],["Mouse","Trackpad","VIM"],
 ["Brackets!","Literal!","Objects?"],["Spaces","Tabs","I like to watch the world burn.. both"],
 ["Firefox","Chrome","IE8"],["StartUps are my jam!","Give me a suit and tie!","I like working from home!"]];
-$.get("http://localhost:3000/answers/", function(data){
-var loggedIn = data;
-});
+
 var ProfilePage = React.createClass({
 	componentWillMount: function(){
 		$.get("http://localhost:3000/session/", function(data){
@@ -61,7 +59,7 @@ var ProfilePage = React.createClass({
 		<div>
 			<div className="col2 add delete "></div>
 			<div className=" body-color profile-img col2">
-				<img src="http://fillmurray.com/200/200"/>
+				<img src={this.props.photoToShow}/>
 				
 				<h2 className="delete-h2 left-align">Bill Murray</h2>
 				<p className="move">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
