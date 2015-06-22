@@ -49,6 +49,46 @@
     max-height:500px;
     }
 
+  header{
+
+  h1{
+          float:left;
+          padding-top:20px;
+          padding-bottom:20px;
+          font-size: 3em;
+          color:white;
+          }
+         
+
+
+ button{
+   margin-top:24px;
+   margin-right:20px;
+
+
+   }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }/*end of 600 querie  */
 
 
@@ -65,7 +105,11 @@
     width:25%;
   }
 
-
+header{
+	h1{
+		margin-left:50px;
+	}
+}
 
   .profile-img{
   width:18%;
@@ -76,18 +120,11 @@
        }
 }
 
+
 .matches-section{
 	width:46%;
 	border-radius:5px;
-	  p{
-       padding-bottom:17px;
-
-	  }
-
-
-
-
-}
+   }
 
 
 .move{
@@ -129,6 +166,9 @@ display:block;
 	display:block;
 
 } 
+
+
+
 
 
 
