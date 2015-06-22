@@ -189,7 +189,6 @@ function startMatching(loggedInUser, everyoneElse){
 			score = 0;
 		}
 	}
-//	{match: {user: loggedInUser.id, body: scores}}
 
 	console.log(scores);
 
