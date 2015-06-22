@@ -27,14 +27,14 @@ class MatchesController < ApplicationController
     sorted_matches = []
     match = {}
     matches = User.find(session[:user_id]).matches
-    matches.each do |match|
-      unserialized_match_body = match.body.split("~")
-      unserialized_match_body[0] = User.find(unserialized_match_body[0]).username
-      match["#{unserialized_match_body[0]}"] = unserialized_match_body[1]
-      match["picture"] = User.find(match.user_id).picture
-      sorted_matches.push(match)
-    end
-    render json: sorted_matches.sort_by { |match| match.values[0] }.reverse
+    # matches.each do |match|
+    #   unserialized_match_body = match.body.split("~")
+    #   unserialized_match_body[0] = User.find(unserialized_match_body[0]).username
+    #   match[unserialized_match_body[0]] = unserialized_match_body[1]
+    #   match["picture"] = User.find(match.user_id).picture
+    #   sorted_matches.push(match)
+    # end
+    render json: matches
   end
 
   private

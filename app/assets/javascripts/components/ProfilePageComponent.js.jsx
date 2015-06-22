@@ -9,7 +9,7 @@ var answers = [["OS X", "Windows", "Linux"],["Agree","Neutral","Disagree"],
 
 var ProfilePage = React.createClass({
 	componentWillMount: function(){
-		$.get("http://localhost:3000/session/", function(data){
+		$.get("/session/", function(data){
 			  loggedInUser = data.username;
 			  userToUpdate = {
 							id: data.id,
@@ -22,7 +22,8 @@ var ProfilePage = React.createClass({
 	},
 	getInitialState: function(){
 		return {
-			bio: this.props.bio
+			bio: this.props.bio,
+			name: this.props.name
 		};
 	},
 	render: function(){
@@ -36,7 +37,7 @@ var ProfilePage = React.createClass({
 				var questionWeight = weight;
 				weight++;
 	return (<div className="input" key={answerForQuestion}>
-		<input  data-id={questionWeight}  value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
+		<input data-id={questionWeight} value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
 	{answerForQuestion}</div>);
 	});
 	return (<div className="input-styles" key={"answerQuestion-"+questions.indexOf(question)}>{question}{answer}</div>);
@@ -49,53 +50,37 @@ var ProfilePage = React.createClass({
 		<header>
 			<h1>Pair Pr💓gramming</h1>
 			<button className="button-right btn" onClick={this.logOut}>Logout</button>
-			
+
 			<button className="btn" onClick={this.showLoggedInUser}>Edit Profile</button>
 		</header>
-		
-		
-		
-		
+
+
+
+
 		<div>
 			<div className="col2 add delete "></div>
 			<div className=" body-color profile-img col2">
 				<img src={this.props.photoToShow}/>
-				
-				<h2 className="delete-h2 left-align">Bill Murray</h2>
-				<p className="move">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+
+				<h2 className="delete-h2 left-align">{this.props.name}</h2>
+				<p className="move">{this.props.bio}
 				</p>
 			</div>
-			
+
 			<div className="col6 matches-section add ">
 				<h2>Your Matches</h2>
-				<div  className="matches col2 ">
-					<img src="http://fillmurray.com/150/150"/>
-					<h3>Bill Murray</h3>
-					<h4>Austin TX</h4>
-					<p>Coder</p>
-				</div>
-				<div className=" matches  col2 ">
-					<img src="http://fillmurray.com/150/150"/>
-					<h3>Bill Murray</h3>
-					<h4>Austin TX</h4>
-					<p>Coder</p>
-				</div>
-				<div className=" matches col2 ">
-					<img src="http://fillmurray.com/150/150"/>
-					<h3>Bill Murray</h3>
-					<h4>Austin TX</h4>
-					<p>Coder</p>
-				</div>
+				<Match />
 			</div>
 			<div className="col2 add delete"></div>
 		</div>
 		<div className="bio">
 			<div className="col2"></div>
 			<div className="col3">
-				<h2 className="delete bringback left-align">Bill Murray</h2>
-				<p className="delete text-fix bringback">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release</p>
+				<h2 className="delete bringback left-align">{this.props.name}</h2>
+				<p className="delete text-fix bringback">{this.props.bio}</p>
 				<div className="col2 messages">
 					<button className="btn" onClick={this.showMessageComponent}>Send Message</button>
+					<a onClick={this.displayMessageBox} href="#">Message</a>
 					<div id="send-message"></div>
 				</div>
 				<div id="target-messagebox"></div>
@@ -107,7 +92,7 @@ var ProfilePage = React.createClass({
 					<button className="btn"onClick={this.submitQuestions}>Save</button>
 				</div>
 			</div>
-		
+
 		</div>
 	</div>
 
@@ -124,15 +109,15 @@ submitQuestions: function(){
 	ans.push(answerToSend+weightID);
 	}
 
-	$.post("http://localhost:3000/answers/",{answer:
+	$.post("/answers/",{answer:
 	{
 	user_id: userToUpdate.id,
 	body: ans
 	}
 	},function(){
-	$.get("http://localhost:3000/answers/", function(data){
+	$.get("/answers/", function(data){
 	var loggedIn = data;
-	$.get("http://localhost:3000/answers/all",function(users){
+	$.get("/answers/all",function(users){
 	startMatching(loggedIn, users);
 	});
 
@@ -144,13 +129,14 @@ showLoggedInUser: function(){
 
 	},
 	logOut: function(){
-	$.get("http://localhost:3000/logout/",function(data){
+	$.get("/logout/",function(data){
 	console.log(data);
 	});
 	this.props.routing.navigate("login", {trigger: true});
 },
 showMessageComponent: function(){
-	React.render(<SendMessage routing={this.props.routing} loggedInUser={loggedInUser} profileName={this.props.profileName} />, document.getElementById("send-message"));
+	React.render(<SendMessage routing={this.props.routing} loggedInUser={loggedInUser} profileName={this.props.profileName} />,
+		document.getElementById("send-message"));
 	},
 displayMessageBox: function(event){
 	event.preventDefault();
@@ -158,7 +144,7 @@ displayMessageBox: function(event){
 	if(clicks%2===0){
 	var user = this.props.user;
 	console.log(loggedInUser);
-	$.get("http://localhost:3000/messages/inbox",{username: loggedInUser},function(data){
+	$.get("/messages/inbox",{username: loggedInUser},function(data){
 	console.log("all message: ",data);
 
 	React.render(<MessageBox user={loggedInUser} receivedMessages={data} />, document.getElementById("target-messagebox"));
@@ -188,16 +174,16 @@ function startMatching(loggedInUser, everyoneElse){
 			scores.push({match: {user_id: loggedInUser.user_id, body: everyoneElse[i].user_id+"~"+Math.round((1-(score/22))*100)}});
 			score = 0;
 		}
-		
+
 		scores.map(function(element){
-			$.post("http://localhost:3000/match/", element, function(){
+			$.post("/match/", element, function(){
 				console.log("i work, bitches!");
 			});
-			
+
 		});
-		
+
 	}
 
-	
+
 
 }

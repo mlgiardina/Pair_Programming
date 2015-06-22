@@ -1,21 +1,26 @@
 var UploadPhoto = React.createClass({
 	render: function(){
-		return (<div><input ref="userImageUpload" type="text"/><button onClick={this.uploadPhoto}>Upload</button></div>);
+		return (<div><input type="text"/><button onClick={this.uploadPhoto}>Upload</button>
+				<img ref="anImage" src={this.props.userPic}/></div>);
 	},
 	uploadPhoto: function(event){
 		event.preventDefault();
-		console.log("im running!");
-		var image = this.refs.userImageUpload.getDOMNode().value;
+		var image = this.refs.anImage;
+		$.get("/likes", function(data){
+			console.log(image.getDOMNode().src = data.url);
+			console.log(data.url);
+		});
 		$.ajax({
 			type:"PUT",
-			url:"http://localhost:3000/users",
+			url:"/users",
 			data:{user:
 					{
-					picture: image
+					username: userToUpdate.username,
+					picture:this.refs.updatePicture.getDOMNode().src, 
+
 				}},
 			success: function(){
-				console.log("i ran!!");
-				//React.render(<ProfilePage routing={myRouter} questions={questions} profileName={userToUpdate.name} />, containerEl);
+				React.render(<ProfilePage routing={myRouter} questions={questions} profileName={userToUpdate.name} />, containerEl);
 			}
 		});
 	}
