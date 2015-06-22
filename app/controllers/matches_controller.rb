@@ -25,13 +25,15 @@ class MatchesController < ApplicationController
 
   def show
     sorted_matches = []
+    match = {}
     matches = User.find(session[:user_id]).matches
     matches.each do |match|
       unserialized_match_body = match.body.split("~")
       unserialized_match_body[0] = User.find(unserialized_match_body[0]).username
-      sorted_matches.push(unserialized_match_body)
+      match["#{unserialized_match_body[0]}" = unserialized_match_body[1]
+      sorted_matches.push(match)
     end
-    render json: sorted_matches.sort_by { |match| match[1] }.reverse
+    render json: sorted_matches.sort_by { |match| match.values[0] }.reverse
   end
 
   private
