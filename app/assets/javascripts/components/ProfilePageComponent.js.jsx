@@ -9,7 +9,7 @@ var answers = [["OS X", "Windows", "Linux"],["Agree","Neutral","Disagree"],
 
 var ProfilePage = React.createClass({
 	componentWillMount: function(){
-		$.get("http://localhost:3000/session/", function(data){
+		$.get("/session/", function(data){
 			  loggedInUser = data.username;
 			  userToUpdate = {
 							id: data.id,
@@ -36,7 +36,7 @@ var ProfilePage = React.createClass({
 				var questionWeight = weight;
 				weight++;
 	return (<div className="input" key={answerForQuestion}>
-		<input  data-id={questionWeight}  value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
+		<input data-id={questionWeight} value={answerForQuestion} ref={"answer"+index} key={index} name={"question-"+index} type="radio"/>
 	{answerForQuestion}</div>);
 	});
 	return (<div className="input-styles" key={"answerQuestion-"+questions.indexOf(question)}>{question}{answer}</div>);
@@ -62,7 +62,9 @@ var ProfilePage = React.createClass({
 				<img src={this.props.photoToShow}/>
 				
 				<h2 className="delete-h2 left-align">Bill Murray</h2>
-				<p className="move">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
+				<p className="move">bio ake a type specimen book. It has survived not only five centuries,
+				 but also the leap into electronic typesetting, remaining essentially unchanged. 
+				 It was popularised in the 1960s with the release
 				</p>
 			</div>
 			
@@ -76,7 +78,9 @@ var ProfilePage = React.createClass({
 			<div className="col2"></div>
 			<div className="col3">
 				<h2 className="delete bringback left-align">Bill Murray</h2>
-				<p className="delete text-fix bringback">bio ake a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release</p>
+				<p className="delete text-fix bringback">bio ake a type specimen book. It has survived
+				 not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+				  It was popularised in the 1960s with the release</p>
 				<div className="col2 messages">
 					<button className="btn" onClick={this.showMessageComponent}>Send Message</button>
 					<a onClick={this.displayMessageBox} href="#">Message</a>
@@ -134,7 +138,8 @@ showLoggedInUser: function(){
 	this.props.routing.navigate("login", {trigger: true});
 },
 showMessageComponent: function(){
-	React.render(<SendMessage routing={this.props.routing} loggedInUser={loggedInUser} profileName={this.props.profileName} />, document.getElementById("send-message"));
+	React.render(<SendMessage routing={this.props.routing} loggedInUser={loggedInUser} profileName={this.props.profileName} />, 
+		document.getElementById("send-message"));
 	},
 displayMessageBox: function(event){
 	event.preventDefault();
