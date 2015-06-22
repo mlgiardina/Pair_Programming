@@ -119,34 +119,17 @@ var ProfilePage = React.createClass({
                  		<div className="questions-section col5">
                  			<h2>Questions</h2>
 
-                 			
+                 	    	<div>
+				            	{questionare}
+								<button className="btn"onClick={this.submitQuestions}>Save</button>
+							</div>
 
-
-
-			<div>
-				
-				
-				<div>
-					
-				</div>
-				{questionare}
-				<button className="btn"onClick={this.submitQuestions}>Save</button>
-			</div>
-
-            </div>
+            			</div>
 
 
              		<div className="col2"></div>
                 </div>
-
-
-
-
-
-
-
-
-           </div>
+            </div>
         	
 
                 

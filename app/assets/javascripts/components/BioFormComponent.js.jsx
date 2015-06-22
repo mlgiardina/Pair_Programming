@@ -50,6 +50,11 @@ var BioForm = React.createClass({
 						        Bio
 						         <input ref="updateBio" defaultValue={userToUpdate.bio}/><br/>
 					        </label>
+
+					        <label>
+						        Picture Url
+						         <input ref="userImageUpload" type="text" defaultValue={userToUpdate.picture}/><br/>
+					        </label>
                         </fieldset>
                          
                         <fieldset className="signup-bottom">
