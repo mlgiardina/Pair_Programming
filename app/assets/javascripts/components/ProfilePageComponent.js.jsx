@@ -45,7 +45,7 @@ render: function(){
 	return (
 	// profile page html-------------------------------
 
-	<div className=" body-color col12">
+	<div className=" body-color body-padding col12">
 		<header>
 			<h1>Pair Pr💓gramming</h1>
 			<button className="button-right btn" onClick={this.logOut}>Logout</button>
@@ -107,7 +107,7 @@ render: function(){
 					<button className="btn"onClick={this.submitQuestions}>Save</button>
 				</div>
 			</div>
-			<div className="col2"></div>
+		
 		</div>
 	</div>
 

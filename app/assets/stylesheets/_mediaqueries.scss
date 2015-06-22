@@ -5,11 +5,15 @@
 
 
 // login page queries---------------------------------
-@media screen and (min-width: 550px) {
+@media screen and (min-width: 650px) {
 
 
 .add{
   display:block;
+  }
+
+  yep{
+  	display:block;
   }
   
 .off{
@@ -72,8 +76,8 @@ button{
 
 @media screen and (min-width: 900px) {
 
-.body-color{
-   padding-bottom:45px;
+.body-padding{
+     padding-bottom:45px;
    }
 
 .add{
@@ -102,6 +106,7 @@ header{
         background-size:cover;
         width:100%;
         margin:0 auto;
+        overflow: hidden;
        }
       }
 

@@ -57,14 +57,14 @@ return (
 			<h2>Bill Murray</h2>
 			<p>"I found my soul coder!"</p>
 		</div>
-		<div className="thirds delete add  col4">
+		<div className="thirds delete yep  col4">
 			<img src="http://fillmurray.com/385/180"/>
 			<h2>Bill Murray</h2>
 			<p>"I found my soul coder!"</p>
 			
 		</div>
 		
-		<div className="thirds delete add col4">
+		<div className="thirds delete  col4">
 			<img src="http://fillmurray.com/385/180"/>
 			<h2>Bill Murray</h2>
 			<p>"I found my soul coder!"</p>
