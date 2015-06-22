@@ -49,23 +49,23 @@ var ProfilePage = React.createClass({
 		<header>
 			<h1>Pair Pr💓gramming</h1>
 			<button className="button-right btn" onClick={this.logOut}>Logout</button>
-			
+
 			<button className="btn" onClick={this.showLoggedInUser}>Edit Profile</button>
 		</header>
-		
-		
-		
-		
+
+
+
+
 		<div>
 			<div className="col2 add delete "></div>
 			<div className=" body-color profile-img col2">
 				<img src={this.props.photoToShow}/>
-				
+
 				<h2 className="delete-h2 left-align">Bill Murray</h2>
 				<p className="move">{this.props.bio}
 				</p>
 			</div>
-			
+
 			<div className="col6 matches-section add ">
 				<h2>Your Matches</h2>
 				<Match />
@@ -76,9 +76,7 @@ var ProfilePage = React.createClass({
 			<div className="col2"></div>
 			<div className="col3">
 				<h2 className="delete bringback left-align">Bill Murray</h2>
-				<p className="delete text-fix bringback">bio ake a type specimen book. It has survived
-				 not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
-				  It was popularised in the 1960s with the release</p>
+				<p className="delete text-fix bringback">{this.props.bio}</p>
 				<div className="col2 messages">
 					<button className="btn" onClick={this.showMessageComponent}>Send Message</button>
 					<a onClick={this.displayMessageBox} href="#">Message</a>
@@ -93,7 +91,7 @@ var ProfilePage = React.createClass({
 					<button className="btn"onClick={this.submitQuestions}>Save</button>
 				</div>
 			</div>
-		
+
 		</div>
 	</div>
 
@@ -136,7 +134,7 @@ showLoggedInUser: function(){
 	this.props.routing.navigate("login", {trigger: true});
 },
 showMessageComponent: function(){
-	React.render(<SendMessage routing={this.props.routing} loggedInUser={loggedInUser} profileName={this.props.profileName} />, 
+	React.render(<SendMessage routing={this.props.routing} loggedInUser={loggedInUser} profileName={this.props.profileName} />,
 		document.getElementById("send-message"));
 	},
 displayMessageBox: function(event){
@@ -175,16 +173,16 @@ function startMatching(loggedInUser, everyoneElse){
 			scores.push({match: {user_id: loggedInUser.user_id, body: everyoneElse[i].user_id+"~"+Math.round((1-(score/22))*100)}});
 			score = 0;
 		}
-		
+
 		scores.map(function(element){
 			$.post("/match/", element, function(){
 				console.log("i work, bitches!");
 			});
-			
+
 		});
-		
+
 	}
 
-	
+
 
 }
