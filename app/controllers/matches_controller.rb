@@ -30,12 +30,13 @@ class MatchesController < ApplicationController
     matches.each do |match|
       unserialized_match_body = match.body.split("~")
       unserialized_match_body[0] = User.find(unserialized_match_body[0]).username
-      match["#{unserialized_match_body[0]}" = unserialized_match_body[1]
+      match["#{unserialized_match_body[0]}"] = unserialized_match_body[1]
+      match["picture"] = User.find(match.user_id).picture
       sorted_matches.push(match)
     end
     render json: sorted_matches.sort_by { |match| match.values[0] }.reverse
   end
-  
+
   private
 
   def match_params
