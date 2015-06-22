@@ -22,7 +22,7 @@ var ProfilePage = React.createClass({
 	},
 	getInitialState: function(){
 		return {
-			bio: this.props.bio
+			bio: this.props.bio,
 			name: this.props.name
 		};
 	},
