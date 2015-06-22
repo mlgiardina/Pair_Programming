@@ -6,8 +6,8 @@ class MatchesController < ApplicationController
   end
 
   def create
-    params.each do |match|
-      new_match = Match.new(match)
+    params.each do |key, value|
+      new_match = Match.new(key)
       if new_match.save
         render json: new_match
       else
@@ -41,6 +41,7 @@ class MatchesController < ApplicationController
     end
     render json: sorted_matches.sort_by { |match| match[1] }.reverse
   end
+  
   private
 
   def match_params
